@@ -1,0 +1,269 @@
+/* 브랜드소개 제목(?)창 */
+#title_page {
+  width: 1200px;
+  height: 160px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* 왼쪽-오른쪽 정렬 */
+  align-items: center;
+  background-color: #b6632c;
+}
+
+/* 왼쪽 텍스트 박스 */
+#title_text {
+  flex: 1;
+  padding-left: 30px;
+}
+
+#title_text>h1,
+#title_text > span
+{
+  font-size: 30px;
+  font-family: 'Do Hyeon';
+  padding: 10px;
+  color: #f1eded;
+}
+
+#sequence > span
+{
+  font-size: 24px;
+  color: #f1eded;
+  font-family: "Noto Sans KR";
+  padding: 0px 10px;
+}
+
+/* 오른쪽 이미지 박스 */
+#interior {
+  width: 600px;
+  height: 100%;
+  background-image: url('../images/inter1.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+  #mainmenu_ikon_home {
+  width: 40px; /* 또는 적당한 크기 */
+  height: 40px;
+  background-image: url("../ikon/mainmenu_home_ikon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block; /* span처럼 동작하게 */
+  vertical-align: middle; /* 텍스트와 정렬 맞춤 */
+}
+
+
+  .container {
+    width: 1200px;
+    height: auto; /* 높이를 자동으로 설정 */
+    margin: 0 auto;
+    justify-content: center; /* 수직 가운데 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+    box-sizing: border-box;
+  }
+
+  /* 비디오 페이지 */
+  #video_page
+  {
+    display: flex; /* flexbox 사용 */
+    flex-direction: column; /* 세로 방향으로 배치 */
+  }
+
+  /* 비디오제목 */
+  .container>#video_title {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    text-align: center; /* 제목 가운데 정렬 */
+    margin: 20px 0; /* 위아래 여백 추가 */
+  }
+
+  /* 비디오 */
+  .container>#intro_video {
+    width: 100%; /* 너비를 100%로 설정 */
+    max-width: 720px; /* 최대 너비 설정 */
+    height: auto; /* 높이를 자동으로 설정 */
+    aspect-ratio: 16 / 9; /* 비율 설정 (16:9) */
+    border: none; /* 테두리 제거 */
+    margin: 20px 0; /* 위아래 여백 추가 */
+  }
+/* ================================================ */
+  /* 제목창 */
+  .brand_symbol
+  {
+    background-color: #b0333b;
+    color: #f5f0f0;
+    padding: 20px 60px;
+    font-size: 24px;
+  }
+  /* 로고 영역 */
+  .logo_box {
+    width: 120px;
+    height: 120px;
+    background-image: url('../images/gongcha_logo.jpg');
+    background-size: contain;   /* 이미지 크기 조절 */
+    background-repeat: no-repeat;  /* 반복 방지 */
+    left: 0;
+    box-sizing: border-box;
+  }
+
+  /* 한자 */
+  #hanja
+  {
+    color: #b0333b;
+    font-family: 'Noto Serif KR',sans-serif;
+    font-size: 30px;
+    padding: 12px;
+  }
+  /* 나머지 글씨 여백 */
+.brand_text p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+
+  #brand_flex_box {
+      display: flex; /* Flexbox 사용 */
+      justify-content: space-between; /* 요소들 사이의 간격을 균등하게 배치 */
+      align-items: flex-start; /* 세로 정렬을 위쪽으로 설정 */
+      padding: 30px 0px;
+  }
+
+  #name_explain {
+      display: flex; /* 내부 요소들을 가로로 배치 */
+      flex: 1; /* 가로 공간을 균등하게 차지하도록 설정 */
+  }
+
+  #color {
+      flex: 1; /* 가로 공간을 균등하게 차지하도록 설정 */
+      right: 0;
+  }
+
+  #color > ul > li{
+      padding: 10px;
+      color: #b0333b;
+  }
+
+  /* -------------------------------------------------- */
+  /* 5가지 강요점 */
+
+  /* 중심 박스 */
+  #five_ikon_box {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  /* 아이콘+텍스트 묶음 */
+  .ikon-group {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* respect와 integrity는 반대로: 텍스트 왼쪽, 아이콘 오른쪽 */
+  .ikon-group.respect,
+  .ikon-group.integrity {
+    flex-direction: row-reverse;
+  }
+  /* 중심 별 */
+  #star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 136px;
+    height: 130px;
+    background-image: url('../ikon/star.png');
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  /* 글씨 키워드 */
+
+  .keyword > h3
+  {
+    font-family: 'GothicA1',sans-serif;
+    color: #b0333b;
+    font-size: 36px;
+    padding: 8px;
+  }
+  .keyword > span
+  {
+    font-family: 'GothicA1',sans-serif;
+  }
+  /* 아이콘 공통 */
+  .ikon {
+
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  /* 위치별 배치 */
+  .quality {
+    top: 5%;
+    left: 68%;
+    transform: translate(-50%, 0);
+  }
+  .quality .ikon {
+    background-image: url('../ikon/quality_ikon.png');
+  }
+
+  .innovation {
+    top: 43%;
+    right: -46%;
+    transform: translate(0, -50%);
+  }
+  .innovation .ikon {
+    background-image: url('../ikon/innovation_ikon.png');
+  }
+
+  .empathy {
+    bottom: 7%;
+    right: 7%;
+    transform: translate(50%, 0);
+  }
+  .empathy .ikon {
+    background-image: url('../ikon/empathy_ikon.png');
+  }
+
+  .respect {
+    bottom: 7%;
+    left: 7%;
+    transform: translate(-50%, 0);
+  }
+  .respect .ikon {
+    background-image: url('../ikon/respect_ikon.png');
+  }
+
+  .integrity {
+    top: 43%;
+    left: -36%;
+    transform: translate(0, -50%);
+  }
+  .integrity .ikon {
+    background-image: url('../ikon/integrity_ikon.png');
+  }
+  /* -------------------------------------------------- */
+
+  .container-1 {
+    background-color: #e4dbd2;
+  }
+  .container-2 {
+    background-color: #f2eaed;
+  }
+  /* 5가지 강요점 */
+  .container-3 {
+    position: relative;
+    height: 430px; /* 충분한 높이 확보 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-4 {
+    background-color: cornflowerblue;
+  }

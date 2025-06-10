@@ -1,0 +1,76 @@
+footer {
+    width: 100%;
+    background-color: #f3d78a;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#footer_container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 24px;
+    margin: 0 auto;
+    background-color: transparent; 
+}
+
+
+.footer_top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+}
+
+#right_footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.sns_address {
+    display: flex;
+    align-items: center;
+}
+
+.footer_logo {
+    background-image: url("../ikon/Logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 220px;
+    height: 166px;
+    margin: 12px;
+}
+
+.email_logo {
+    background-image: url("../ikon/gmail.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    margin: 6px;
+}
+
+.sns_logo {
+    background-image: url("../ikon/instar.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    margin: 6px;
+}
+
+.footer_ment {
+    font-family: 'Do Hyeon','Sunflower','Noto Sans KR';
+    font-size: 36px;
+    margin: 6px;
+}
+
+.company_ment {
+    display: block;
+    text-align: center;
+    font-family: 'Gothic A1','Do Hyeon','Noto Sans KR';
+    font-size: 30px;
+    margin-top: 16px;
+}

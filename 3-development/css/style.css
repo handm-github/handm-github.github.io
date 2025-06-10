@@ -1,0 +1,780 @@
+/* 스크롤바 숨기기 */
+html,body {
+	overflow:hidden;
+	background-color: #95cbe0;
+}
+/* 스크롤 페리이지 클래스들 */
+.page {
+	opacity:0;
+	/* 뷰포트 높이 */
+	height:100vh;
+	transition:opacity 0.6s ease-in-out;
+}
+.page.visible {
+	opacity: 1;
+}
+/* TOP 버튼 */
+#top_button {
+	background:none;
+	/* 기존 배경 제거 */
+	border:none;
+	/* 기존 테두리 제거 */
+	padding:0;
+	/* 기존 패딩 제거 */
+	outline:none;
+	/* 클릭 시 외곽선 제거 */
+	cursor:pointer;
+	/* 마우스 커서 변경 */
+	/* 이미지 적용-상대 경로 사용 */
+	background-image:url('../images/top_button.png');
+	/* CSS 파일 위치 기준 경로 */
+	background-size:cover;
+	/* 또는 contain 등 */
+	background-repeat:no-repeat;
+	background-position:center;
+	/* 버튼 크기 설정 */
+	width:62px;
+	height:62px;
+	/* 위치 고정 */
+	position:fixed;
+	bottom:15%;
+	right:15%;
+	z-index:100;
+}
+/* ================================================================= */
+#header,#nav>ul,#content {
+	width:960px;
+	margin: 0 auto;
+}
+/* 헤더 영역 */ h1 {
+	font-weight:900;
+	text-align:center;
+	line-height:3;
+	text-shadow:4px 4px 4px rgba(0,0,0,0.4);
+	width:22ch;
+	/* 타이핑 애니메이션 효과발동 */
+	animation:typing 2s steps(22),blink .5s step-end infinite alternate;
+	white-space:nowrap;
+	overflow:hidden;
+	border-right:3px solid;
+	font-family:monospace;
+}
+/* 네비게이션 영역 */
+.page>#nav {
+	background-color:#1c98ed;
+	box-shadow:0 4px 4px rgba(0,0,0,0.4);
+	margin-bottom:5px;
+	position:fixed;
+	top:0;
+	width:100%;
+	height:40px;
+	z-index: 99;
+}
+/* 메뉴와 서브메뉴 스타일 */
+.page>#nav>ul {
+	position:relative;
+	display:flex;
+	justify-content:space-around;
+}
+.page>#nav>ul>li {
+	display:block;
+	padding:1em 2em;
+	position:relative;
+	text-decoration:none;
+	color:white;
+	text-shadow:1px 1px 2px black;
+}
+.page>#nav>ul>li>a {
+	display:block;
+	text-decoration:none;
+	color:white;
+	text-shadow: 1px 1px 2px black;
+}
+/* 부모 li 위에 마우스를 올리면 하위 메뉴 표시 */
+.page>#nav>ul>li:hover>.submenu {
+	display: block;
+}
+/* 메뉴중 '프로젝트'메뉴 기능 */
+/* 기본적으로 하위 메뉴 숨김 */
+.submenu {
+	display:none;
+	position:absolute;
+	background-color:#bfe5ef;
+	box-shadow:0 4px 6px rgba(0,0,0,0.3);
+	padding:0;
+	list-style:none;
+	z-index:100;
+}
+.submenu>li a {
+	color:black;
+	padding:0.5em 1em;
+	display:block;
+	text-decoration:none;
+}
+.submenu>li a:hover {
+	background-color:skyblue;
+	color: black;
+}
+/*============================================================== */
+/* .page:nth-child(even){background-color: #333;}*/
+/* 페이지당 가운데에 위치된 제목 */
+.page>.container>h1 {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	font-family:'Sunflower',sans-serif;
+	;
+	font-size:200px;
+	font-weight:900;
+	text-shadow:4px 4px 4px rgba(0,0,0,0.4);
+	z-index:10;
+	text-align:center;
+}
+@keyframes typing {
+	from {
+		width:0
+	}
+}
+@keyframes blink {
+	to {
+		border-color: transparent
+	}
+}
+/* 내 얼굴 사진 */
+#myface {
+	margin: 5%;
+}
+/* 간단한 개인정보*/
+#information {
+	width:35%;
+	background-color:white;
+	border:6px outset #bfe5ef;
+	border-radius:6px;
+	box-shadow:0 4px 8px rgba(0,0,0,0.1);
+	padding:20px;
+}
+#information>h2 {
+	font-family:'Sunflower',sans-serif;
+	background-color:#1c98ed;
+	font-size:1.6rem;
+	font-weight:900;
+	padding:12px;
+	margin-bottom:10px;
+	border-radius: 6px;
+}
+/* 자기소개 내용 리스트 */
+.info_box {
+	font-family:'Do Hyeon',sans-serif;
+	font-size:1.2rem;
+	margin-bottom:10px;
+	padding: 10px;
+}
+/* ================================================================= */
+/* 페이지 안의 컨테이너 */
+.page>.container {
+	display:flex;
+	margin:auto;
+	align-items:center;
+	height:100%;
+	/* 페이지 높이에 맞춤 */
+	width:1200px;
+	position:relative;
+}
+/* ================================================================= */ 
+/* 기본 스타일:설명창과 사진 나란히 배치 */
+/* 프로젝트 동영상 */
+.project_video {
+	width:560px;
+	height:338px;
+	margin:5%;
+	border:#ccc solid 25px;
+	border-radius:20%;
+	background-color: #1c98ed;
+}
+/* ================================================================= */
+/* row1,row2는 세로로 쌓이고,안의 요소는 가로 정렬 */
+/* 따로 만든 이유 해봤는데,2x2 비율이 안나옴 */
+/* 2x2 Grid 레이아웃 설정 */
+.grid-wrapper {
+	display:grid;
+	/* grid-template-columns:1fr 1fr;가로 2칸 */
+	grid-template-columns:repeat(3,1fr);
+	/* 가로 3칸(괄호안의 숫자를 바꾸면 갯수가 늘어난다.) */
+	gap:30px;
+	padding:36px;
+}
+/* history 공통 박스 스타일 */
+.history {
+	background-color:#f5f5f5;
+	border:2px solid #ddd;
+	border-radius:15px;
+	padding:20px;
+	box-shadow:0 4px 8px rgba(0,0,0,0.1);
+	box-sizing: border-box;
+}
+/* 텍스트 스타일 */
+.history>h3 {
+	font-size:20px;
+	font-weight:bold;
+	margin-bottom:10px;
+	margin:16px;
+}
+.history>ul {
+	padding-left: 20px;
+}
+/* <li>태그를 높이 여백을 맞추기 위해서 이다. */
+.history>ul>li {
+	font-family:'Do Hyeon',sans-serif;
+	font-size:20px;
+	padding:10px;
+	list-style: none;
+}
+/* -------------------------------------------------------------- */
+/* 스킬활용도 */
+#skills h3 {
+	font-family:'Gothic A1',sans-serif;
+	font-size:20px;
+	margin-bottom:30px;
+}
+.skill-group {
+	display:flex;
+	align-items:flex-start;
+	margin-bottom:20px;
+}
+.skill-group>.label {
+	width:20px;
+	font-size:18px;
+	font-weight:bold;
+	margin-right:20px;
+	writing-mode:vertical-lr;
+	text-align:center;
+	background-color:#f2f2f2;
+	border-radius:8px;
+	padding: 10px;
+}
+.skill-bar {
+	display:flex;
+	align-items:center;
+	/* 아이콘,막대,퍼센트 숫자를 세로 중앙에 정렬 */
+	margin-bottom:15px;
+}
+/* 새로 추가한 skill-icon div의 기본 스타일 */
+.skill-icon {
+	width:32px;
+	height:32px;
+	background-size:contain;
+	/* 이미지가 요소 안에 포함되도록 크기 조절 */
+	background-repeat:no-repeat;
+	/* 배경 이미지 반복 안 함 */
+	background-position:center;
+	/* 배경 이미지 중앙 정렬 */
+	margin-right:12px;
+	/* 이미지와 동일한 마진 */
+}
+/* 각 스킬별 배경 이미지 지정 */
+/* CSS 파일이 css 폴더에 있고 이미지가 images 폴더에 있다면 '../images/...' 경로 사용 */
+.skill-icon.photoshop {
+	background-image:url('../images/photoshop_logo.png');
+}
+.skill-icon.illustrator {
+	background-image: url('../images/illustrator_logo.png');
+}
+.skill-icon.html {
+	/* 클래스 이름은 파일명과 같거나 다르게 지정할 수 있습니다. */
+	background-image:url('../images/html_logo.png');
+}
+.skill-icon.css {
+	background-image:url('../images/css_logo.png');
+}
+.skill-icon.javascript {
+	background-image:url('../images/javascript_logo.png');
+}
+.skill-icon.jquery {
+	background-image:url('../images/jQuery_logo.png');
+}
+.skill-icon.java {
+	background-image:url('../images/Java_logo.png');
+}
+.skill-icon.python {
+	background-image: url('../images/python_logo.png');
+}
+/* 막대그래프의 막대 전체 길이 */
+.bar {
+	width:200px;
+	height:20px;
+	background-color:#eee;
+	border-radius:10px;
+	overflow:hidden;
+	margin-right: 10px;
+}
+/* 막대로 채워지는 정도를 보이게 한다. */
+.fill {
+	width:0;
+	/* 초기값을 0으로 설정해야 처음에 안 보이게 하는 것임 */
+	height:100%;
+	background-color:#2196F3;
+	border-radius:10px 0 0 10px;
+	transition:width 1s ease-in-out;
+}
+/* 퍼센트지 숫자를 보여주기*/
+.percentage {
+	font-size:14px;
+	font-weight:bold;
+	width: 40px;
+}
+/* 막대로 채워지는 정도를 따로 퍼센트로 구별 */
+/* animate-on-visible 클래스가 추가되면 실제 width로 확장 */
+.fill.animate-on-visible.w-100 {
+	width:100%;
+}
+.fill.animate-on-visible.w-90 {
+	width:90%;
+}
+.fill.animate-on-visible.w-80 {
+	width:80%;
+}
+.fill.animate-on-visible.w-70 {
+	width:70%;
+}
+.fill.animate-on-visible.w-60 {
+	width:60%;
+}
+.fill.animate-on-visible.w-50 {
+	width:50%;
+}
+.fill.animate-on-visible.w-40 {
+	width:40%;
+}
+.fill.animate-on-visible.w-30 {
+	width:30%;
+}
+.fill.animate-on-visible.w-20 {
+	width:20%;
+}
+.fill.animate-on-visible.w-10 {
+	width: 10%;
+}
+/* ================================================================= */
+/* 프로젝트 종류명 제목 클래스*/
+.kind_project {
+	top:6%;
+	width:100%;
+	position:absolute;
+	text-align:center;
+	font-weight:900;
+	font-size:36px;
+	font-family:'Do Hyeon',sans-serif;
+	z-index: 5;
+}
+/* ------------------------------------------------------------------------------- */
+/* 닫기 버튼 */
+.close-button {
+	position:absolute;
+	right:20px;
+	top:20px;
+	border:none;
+	background:none;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size:40px;
+	font-weight:bold;
+	color:#1c1cda;
+	cursor:pointer;
+	transition:transform 0.5s ease;
+	transform-origin:center;
+}
+.close-button:hover {
+	transform: rotate(360deg);
+}
+
+/* ------------------------------------------------------------------------------- */
+/* 코딩 프로그램 동영상 프로젝트 */
+/* 비디오 비율 */
+.video-grid {
+	display:grid;
+	grid-template-columns:repeat(2,1fr);
+	gap:20px;
+	width:1200px;
+	height: 700px;
+}
+/* 프로그램 영상박스들 */
+.video-box {
+	background-color:#eee;
+	padding:10px;
+	text-align:center;
+	cursor:pointer;
+	border-radius:10px;
+	box-shadow:0 2px 8px rgba(0,0,0,0.1);
+	width:500px;
+	height:300px;
+	padding:18px;
+	margin:26px;
+	opacity:0;
+	transition: all 0.8s ease;
+}
+/* 초기:왼쪽에서 시작 */
+.video-box.from-left {
+	transform: translateX(-100px);
+}
+/* 초기:오른쪽에서 시작 */
+.video-box.from-right {
+	transform: translateX(100px);
+}
+/* 등장 시 */
+.video-box.slide-in-left,.video-box.slide-in-right {
+	opacity:1;
+	transform: translateX(0);
+}
+/* 프로그램 영상박스 제목 */
+.video-grid .video-box>p {
+	padding:auto;
+	font-size:36px;
+	font-family:'Do Hyeon',sans-serif;
+	text-decoration:none;
+	color:black;
+	padding-top: 25%;
+}
+/* 프로그램 팝업영상 */
+.modal {
+	display:none;
+	position:fixed;
+	z-index:12;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.6);
+}
+.modal-content {
+	position:relative;
+	margin:10% auto;
+	width:80%;
+	max-width:700px;
+	background:#fff;
+	padding:20px;
+	border-radius:10px;
+}
+.modal-content iframe {
+	width: 100%;
+}
+/* 모달 팝업 영상 영역 */
+#modalIframe {
+	width:100%;
+	height: 400px;
+}
+/* 이미지 사진효과 */
+#banner_projects img,.poster_image {
+	cursor: zoom-in;
+}
+/* ================================================================= */
+/* 배너 디자인 프로젝트창 */
+#banner_projects {
+	background-color:chocolate;
+	max-width:100%;
+	margin:0 auto;
+	display:flex;
+	box-sizing:border-box;
+}
+.banner-box {
+	padding:10px;
+	box-sizing:border-box;
+}
+.banner-box>img {
+    width: auto;
+    max-width: none;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+/* 2. 줌 인 */
+.zoom-in {
+	opacity:0;
+	transform:scale(0.9);
+	transition:all 0.6s ease;
+}
+.zoom-in.visible {
+	opacity:1;
+	transform: scale(1);
+}
+/* ================================================================= */
+/* 디자인한 작품 이미지 클릭시 팝업창 */
+/* 팝업 전체 오버레이 */
+.popup-overlay {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.7);
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	z-index:100;
+	opacity:0;
+	visibility:hidden;
+	transition: opacity 0.3s ease,visibility 0.3s ease;
+}
+/* 팝업 콘텐츠에 약간의 스케일 애니메이션 추가 */
+.popup-content {
+	position:relative;
+	background:#fff;
+	padding:10px;
+	border-radius:8px;
+	max-width:90%;
+	max-height:90%;
+	overflow:auto;
+	transform:scale(0.95);
+	/* 살짝 축소된 상태에서 시작 */
+	opacity:0;
+	transition:transform 0.3s ease,opacity 0.3s ease;
+}
+/* show 클래스가 붙었을 때의 효과 */
+.popup-overlay.show {
+	opacity:1;
+	visibility:visible;
+}
+.popup-overlay.show .popup-content {
+	transform:scale(1);
+	opacity: 1;
+}
+/* 이미지 중앙 정렬 */
+.popup-content img {
+	max-width:100%;
+	display:block;
+	margin:auto;
+}
+.slide-left_img {
+	opacity:0;
+	transform:translateY(30px);
+	transition:all 0.6s ease;
+}
+.slide-left_img.visible {
+	opacity:1;
+	transform: translateY(0);
+}
+/* ================================================================= */
+/* 포스터 프로젝트들 */
+/* 포스터용 컨테이너 */
+.container>#poster_container {
+	display:flex;
+	/* 가로 정렬 */
+	flex-wrap:wrap;
+	/* 넘칠 경우 줄바꿈 */
+	gap:40px;
+	/* 포스터 간 간격 */
+	justify-content:center;
+	/* 가운데 정렬 */
+	padding:40px 0;
+	width:100%;
+	/* 컨테이너 너비를 꽉 채움 */
+	box-sizing:border-box;
+}
+#poster_container>.poster {
+	width:480px;
+	/* 이미지랑 비슷한 너비 */
+	box-sizing:border-box;
+	text-align:center;
+}
+.poster_title {
+	font-size:24px;
+	font-weight:bold;
+	margin-bottom:16px;
+}
+.poster_image {
+	width:100%;
+	border-radius: 8px;
+}
+/* body에 이 클래스가 붙으면 스크롤 비활성화 (팝업 과 모달시)*/
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* ================================================================= */
+/* 리뉴얼 홈페이지 이동 */
+/* homepage 전체 감싸는 부분 */
+/* homepage 내부 flex 설정 */
+#homepage {
+	display:flex;
+	flex-wrap:wrap;
+	/* 줄 바꿈 가능 */
+	justify-content:center;
+	/* 가운데 정렬 */
+	gap:20px;
+	/* 간격 */
+	margin-top:30px;
+	max-width:100%;
+	width:100%;
+}
+/* 각 박스가 반응형으로 너비 조절됨 */
+.page_warp {
+	flex:1 1 calc(50% - 10px);
+	/* 두 개가 gap 포함해서 100% */
+	max-width:calc(50% - 10px);
+	height:700px;
+	display:flex;
+	cursor:pointer;
+}
+/* 홈페이지 로고와 제목 합체창 */
+.page_warp_space {
+	position:relative;
+	overflow:hidden;
+	z-index:1;
+	/* background-color:transparent;/* 각 ID에 배경색이 지정될 것이므로 기본값은 투명 */
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	gap:20px;
+	/* 내부 로고와 텍스트 간격 유지 */
+	width:100%;
+	/* 부모 .page_warp의 너비를 꽉 채우도록 설정 */
+	height:100%;
+	/* 부모 .page_warp의 높이를 꽉 채우도록 설정 */
+	border-radius:16px;
+	cursor:pointer;
+	/* .page_warp에 이미 설정되어 있으므로 중복 가능 */
+	transition:background-color 0.3s ease,transform 0.3s ease;
+}
+/* 공차페이지 이동 공간 */
+/* #homepage_1 및 #homepage_2는 배경색만 유지 */
+#homepage_1 {
+	background-color:#c32032;
+	/* 공차 색상 */
+	/* 이미 .page_warp_space에 flex 및 정렬 속성 적용됨 */
+}
+/* 짤툰페이지 이동 공간 */
+#homepage_2 {
+	background-color:#eff88e;
+	/* 짤툰 색상 */
+	/* 이미 .page_warp_space에 flex 및 정렬 속성 적용됨 */
+}
+/* 새로 추가한 homepage-logo div의 스타일 (이전 답변과 동일) */
+.homepage-logo {
+	width:240px;
+	/* 로고 크기 지정 (필요하다면 %나 max-width로 변경 가능) */
+	height:240px;
+	/* 로고 크기 지정 (필요하다면 %나 max-height로 변경 가능) */
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	position:relative;
+	z-index:1;
+}
+/* 각 로고별 배경 이미지 지정 (상대 경로 확인) */
+.homepage-logo.gongcha {
+	background-image:url('../images/gongcha_logo.png');
+}
+.homepage-logo.zzaltong {
+	background-image: url('../images/jjaltoon_logo.png');
+}
+/* 제목 텍스트 */
+.page_warp_space span {
+	font-family:'Gothic A1',sans-serif;
+	font-weight:900;
+	font-size:18px;
+	text-align:center;
+	position:relative;
+	z-index: 1;
+}
+/* 삼각형 종이 넘김 효과-공차 */
+#homepage_1::before {
+	content:'';
+	position:absolute;
+	inset:0;
+	background-color:#76111e;
+	transform-origin:top left;
+	transform:rotate(-45deg) scale(1.5);
+	transition:transform 0.6s ease-in-out;
+	z-index: 0;
+}
+/* 삼각형 종이 넘김 효과-짤툰 */
+#homepage_2::before {
+	content:'';
+	position:absolute;
+	inset:0;
+	background-color:#ddb81d;
+	transform-origin:top right;
+	transform:rotate(45deg) scale(1.5);
+	transition:transform 0.6s ease-in-out;
+	z-index: 0;
+}
+/* hover 시 종이 넘기듯 펼쳐짐 */
+#homepage_1:hover::before,#homepage_2:hover::before {
+	transform: rotate(0deg) scale(1);
+}
+/* ====================================================== */
+#contact {
+	width:1024px;
+	/* 이 값은 반응형 디자인 시 조정 필요 */
+	margin:auto;
+	height:700px;
+	/* 이 값은 콘텐츠 양에 따라 조정 또는 제거 고려 */
+}
+/* Contact 제목창 */
+#contact>h2 {
+	font-family:'Do Hyeon',sans-serif;
+	font-size:3rem;
+	padding:10px;
+	margin-bottom:10px;
+	text-align: center;
+	/* 제목 중앙 정렬 */
+}
+/* Contact의 ul창 */
+#contact>ul {
+	margin:20px auto;
+	/* 상하 마진 추가,좌우 중앙 */
+	background-color:#bfe5ef;
+	padding:20px;
+	/* ul 자체에 패딩 추가 */
+	box-sizing:border-box;
+	list-style:none;
+	/* 목록 스타일 제거 */
+}
+/* Contact의 리스트줄 */
+#contact>ul>li {
+	font-family:'Gothic A1',sans-serif;
+	font-size:26px;
+	/* width:100%;이미 flexbox로 자식 요소가 공간을 차지하므로 필요 없을 수 있음 */
+	padding:12px 0;
+	/* 좌우 패딩 제거,ul에 추가 */
+	/* box-sizing:border-box;li에 직접 적용하는 것보다 ul이나 container에 적용하는 것이 일반적 */
+	display:flex;
+	/* 아이콘과 텍스트를 한 줄에 정렬 */
+	align-items:center;
+	/* 아이콘과 텍스트 세로 중앙 정렬 */
+}
+/* 공통 아이콘 스타일 */
+#contact>ul>li::before {
+	content:"";
+	display:inline-block;
+	width:40px;
+	height:40px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	margin-right:12px;
+	vertical-align: middle;
+}
+/* 전화 아이콘 */
+#contact>ul>li.phone::before {
+	background-image: url('../images/phone_ikon.png');
+}
+/* 이메일 아이콘 */
+#contact>ul>li.email::before {
+	background-image: url('../images/email_ikon.png');
+}
+/* ====================================================== */
+/* li 애니메이션 효과 */
+.hidden {
+	opacity:0;
+	transform:translateY(30px);
+	transition:all 0.6s ease;
+}
+.show {
+	opacity:1;
+	transform: translateY(0);
+}

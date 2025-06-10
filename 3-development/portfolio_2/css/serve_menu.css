@@ -1,0 +1,172 @@
+/* 너비 조절용 */
+#wrap
+{width:1200px;
+  margin:0 auto;
+  background:rgb(236, 187, 197);}
+/* 메뉴소개 제목(?)창 */
+#title_page
+{
+  height: 160px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* 왼쪽-오른쪽 정렬 */
+  align-items: center;
+  background-color: #b0333b;
+}
+/* 왼쪽 텍스트 박스 */
+#title_text {
+  flex: 1;
+  padding-left: 30px;
+}
+#mainmenu_ikon_home {
+  width: 40px; /* 또는 적당한 크기 */
+  height: 40px;
+  background-image: url("../ikon/mainmenu_home_ikon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block; /* span처럼 동작하게 */
+  vertical-align: middle; /* 텍스트와 정렬 맞춤 */
+}
+
+#title_text>h1,
+#title_text > span
+{
+  font-size: 30px;
+  font-family: 'Do Hyeon';
+  padding: 10px;
+  color: #f1eded;
+}
+
+#sequence > span
+{
+  font-size: 24px;
+  color: #f1eded;
+  font-family: "Noto Sans KR";
+  padding: 0px 10px;
+}
+
+    /* 오른쪽 이미지 박스 */
+#interior {
+  width: 600px;
+  height: 100%;
+  background-image: url('../images/beverages.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+    /* 클릭할 종류들 */
+  #click_navi > ul {
+    display: grid;
+    grid-template-columns: repeat(6, 2fr);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #click_navi > ul > li {
+    position: relative;
+    padding: 20px;
+    text-align: center;  cursor: pointer;
+    overflow: hidden;
+    background-color: white; /* 기본 배경 */
+    transition: background-color 0.3s;
+  }
+
+
+  /* 글자 스타일 */
+  #click_navi > ul > li > a > span {
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+
+  }
+
+  /* 평행사변형 애니메이션 요소 */
+  #click_navi > ul > li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 150%;
+    height: 100%;
+    background: #b0333b;
+    transform: skewX(-30deg);
+    z-index: 1;
+    transition: left 0.5s ease;
+  }
+
+  /* 호버 시 애니메이션 실행 */
+  #click_navi > ul > li:hover::before {
+    left: 0;
+  }
+
+  /* 호버 시 배경색 유지 + 글씨 보이게 */
+  #click_navi > ul > li:hover {
+    background-color: #b0333b;
+  }
+
+  #click_navi > ul > li:hover > a > span {
+    color: #fff;
+  }
+  
+    /* 4x4 Grid 레이아웃 설정 */
+    .grid-wrapper {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; 가로 2칸 */
+    grid-template-columns:repeat(4, 4fr); 
+    gap: 10px;
+    }
+
+     #menu_title
+     {
+      text-align: center;
+      font-size: 36px;
+      font-family: "Noto Sans KR";
+      padding: 10px;
+     }
+
+    /* 공통 사진박스 */
+    .list_menu {
+        width: 140px;
+        margin: 0 auto;
+        text-align: center;
+        cursor: pointer;
+        padding: 20px;
+    }
+    
+    .smoothie {
+        width: 140px;
+        height: 250px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-bottom: 10px;
+    }
+
+    /* 텍스트 스타일 */
+    .list_menu > span {
+        display: block;
+        font-size: 20px;
+        font-family: 'GothicA1', sans-serif;
+        text-align: center;
+    }
+    /* 스무디 사진들 */
+    /* .smoothie1{background-image: url('../images/beverage/list_menu_1.png');} 
+    .smoothie2{background-image: url('../images/beverage/list_menu_2.png');}
+    .smoothie3{background-image: url('../images/beverage/list_menu_3.png');}
+    .smoothie4{background-image: url('../images/beverage/list_menu_4.png');}
+    .smoothie5{background-image: url('../images/beverage/list_menu_5.png');}
+    .smoothie6{background-image: url('../images/beverage/list_menu_6.png');}
+    .smoothie7{background-image: url('../images/beverage/list_menu_7.png');}
+    .smoothie8{background-image: url('../images/beverage/list_menu_8.png');}
+    .smoothie9{background-image: url('../images/beverage/list_menu_9.png');}
+    .smoothie10{background-image: url('../images/beverage/list_menu_10.png');}
+    .smoothie11{background-image: url('../images/beverage/list_menu_11.png');}
+    .smoothie12{background-image: url('../images/beverage/list_menu_12.png');}
+    .smoothie13{background-image: url('../images/beverage/list_menu_13.png');}
+    .smoothie14{background-image: url('../images/beverage/list_menu_14.png');}
+    .smoothie15{background-image: url('../images/beverage/list_menu_15.png');}
+    .smoothie16{background-image: url('../images/beverage/list_menu_16.png');}*/

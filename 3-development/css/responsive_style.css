@@ -1,0 +1,412 @@
+/* 반응형으로 모든 화면 너비 범위에서 공통적으로 적용되는 스타일 시트를 작성*/
+
+/* A. width <= 767px;*/
+/* ->max-width  767px */
+/* 스마트폰 */
+@media (max-width: 768px) {
+    /* 페이지 높이와 너비 조정 */
+    .page {
+       height: auto;
+       flex-direction: column; /* 페이지 안의 요소를 세로로 쌓이게 함 */
+           opacity: 1 !important;
+    transform: none !important;
+    }
+    /* 페이지안의 컨테이너 */
+    .page > .container {
+      width: 100%;     
+      max-width: 100%;      
+      padding:24px;     
+    }
+
+    /* 제목 크기 및 위치 조정 */
+    .page > .container > h1 {
+        font-size: 80px;
+    }
+    #first_page
+    {
+      width: 100%;
+      height: 500px;
+    }
+
+    /* 상단 네비게이션 바 */
+    .page > #nav {
+      width: 100%; /* 고정된 768px 대신, 화면 너비에 맞게 */
+      height: auto; /* 높이를 컨텐츠에 따라 자동 조정 */
+    }
+
+    /* ul 스타일 */
+    .page > #nav > ul {
+      display: flex;
+      flex-wrap: wrap;        /* 가로로 나열 후, 넘치면 줄바꿈 */
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%;
+    }
+
+    /* li 안의 a 태그 */
+    .page > #nav > ul > li > a {
+      display: block;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    /* 내 얼굴 사진 크기 조정 */
+    #myface {
+        width: 40%; /* 화면에 맞게 사진 크기 축소 */
+        height: auto;
+        margin: 5%;
+    }
+
+    /* 간단한 개인정보 박스 */
+    #sequence {
+        width: 50%;
+        padding: 10px;
+    }
+
+    /* 프로젝트 비디오 크기 조정 */
+    .project_video {
+        width: 100%; /* 화면 크기에 맞게 축소 */
+        height: auto;
+        margin: 0 auto;
+    }
+
+    /* 두번째 페이지 */
+    /* 본래의 2x2 Grid 레이아웃-> 한줄로 표현*/
+    .grid-wrapper {
+        grid-template-columns: repeat(1, 1fr); 
+        margin: auto;
+    }
+
+    /* 이력서 박스 스타일 */
+    .history {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    /* 스킬바 크기 조정 */
+    .bar {
+        width: 150px; /* 좁은 화면에 맞게 크기 축소 */
+    }
+
+/* ================================================ */
+    /* 프로젝트 종류명 제목 클래스*/
+    .page > .container>.kind_project
+    {
+        top: 0;
+        text-align: center;
+    }
+/* =============================================== */
+/* 코딩 프로그램 동영상 프로젝트 */
+
+/* 비디오 비율 */
+.video-grid {
+    display: grid;
+      grid-template-columns: 1fr; /* 세로로 쌓이게 */
+      gap: 10px;
+      /* width: 768px;
+      height: 700px; */
+      
+  }
+
+  /* 프로그램 영상박스들 */
+  .video-box {
+      background-color: #eee;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width:180px;
+      height: 100px;
+      margin: auto;
+  }
+  /* 프로그램 영상박스 제목 */
+  .video-grid .video-box > p
+  {
+      padding: auto;
+      font-size: 24px;
+      font-family: 'Do Hyeon', sans-serif;
+      text-decoration: none;
+      color: black;
+      
+  }
+  /* 프로그램 팝업영상 */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 12;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+  }
+  
+  .modal-content {
+    position: relative;
+    margin: 10% auto;
+    width: 80%;
+    max-width: 700px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .modal-content video {
+    width: 100%;
+  }
+  
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  
+  /* =================================== */
+  /* 나가기 버튼 */
+  .close-button {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        width: 50px; /* 크기 조정 */
+        height: 50px;
+        cursor: pointer;
+        z-index: 10;
+      }
+  /* =================================== */
+    /* 프로젝트 배너 */
+    #banner_projects{
+        flex-direction: column; /* 세로로 배치 */
+        height: auto;
+        padding-bottom: 50px;
+    }
+
+    #banner_projects img
+    {
+      margin: auto;
+      align-items: center;
+    }
+    
+    /* 목업 배너 */
+    #banner_3 
+    {
+      display: flex;
+    }
+    #banner_3 img{
+      width: calc(33.333% - 10px); /* 3개 한 줄로 배치하고 간격 조정 */
+    }
+
+/* =================================== */
+    /* 포스터 프로젝트들 */
+    #poster_container {
+       
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+
+    .poster img {
+        width: 70%;
+    }
+    
+    .poster_title 
+    {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+/* ================================================================= */
+      /* 리뉴얼 홈페이지 이동 */
+      /* homepage 전체 감싸는 부분 */
+    /* 스마트폰에서 버튼 사이 여백 없애기 */
+    #homepage {
+      display: flex;
+      /* flex-direction: column; */
+      align-items: center;
+      margin: auto;
+      gap: 20px; /* 딱 붙지 않도록 적당한 여백 주기 */
+    }
+
+    .page_warp_space {
+      margin: 0;
+      padding: 0;
+      height: auto;
+    }
+
+    .page_warp > #homepage_1, .page_warp > #homepage_2 {
+      height: 50%;
+      margin: 20px 0; /* 콘텐츠 안 여백만 살짝 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+/* ==================================================== */
+
+}
+
+/* ======================================================== */
+/* B. 768px <= width <= 1023px */
+/*      -> (min-width : 768px) and (max-width: 1023px) */
+/* 테블렛 */
+@media  screen and (min-width:769px) and (max-width:1023px)
+{
+    .page>#nav > ul > li 
+    {
+        display: block;
+        padding: 1em 2em;
+        text-decoration: none;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    .page>#nav > ul > li > a
+    {
+        display: block;
+        text-decoration: none;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    /* #nav 요소를 뷰포트 상단에 고정시키는 CSS블록 */
+    .page>#nav.fixed{
+        /* 뷰포트를 기준으로 상단에 배치 */
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    /* 부모 li 위에 마우스를 올리면 하위 메뉴 표시 */
+    .page> #nav ul > li:hover > .submenu {
+        display: block;
+    }
+
+    /* 메뉴와 서브메뉴 스타일 */
+    .page>#nav > ul {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .page> #nav > ul > li {
+        position: relative;
+    }
+        /* ul 스타일 */
+        .page > #nav > ul {
+          display: flex;
+          flex-wrap: wrap;        /* 가로로 나열 후, 넘치면 줄바꿈 */
+          justify-content: center;
+          align-items: center;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          width: 100%;
+        }
+    
+        /* li 안의 a 태그 */
+        .page > #nav > ul > li > a {
+          display: block;
+          font-size: 0.9rem;
+          white-space: nowrap;
+          text-align: center;
+        }
+    /* 페이지 안의 컨테이너 */
+    .page > .container {
+      height: 100%;
+      width: 100%; 
+    }
+
+    /* 내 얼굴 사진 크기 조정 */
+    #myface {
+        width: 40%; /* 화면에 맞게 사진 크기 축소 */
+        height: auto;
+        margin: 5%;
+    }
+
+    /* 간단한 개인정보 박스 */
+    #sequence {
+        width: 50%;
+        padding: 10px;
+    }
+
+    /* 자기소개 제목창 */
+    #sequence > h2
+    {
+        font-family: 'Do Hyeon', sans-serif;
+        font-size: 1.5rem;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #sequence > ol
+    {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding: 10px;
+    }
+
+    #sequence > ol > li
+    {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-family: 'Gothic A1', sans-serif;   
+         
+    }
+
+    /* 자기소개 리스트의 크기 조정 */
+    .info-box {
+        font-size: 0.9rem; /* 텍스트 크기 줄임 */
+    }
+
+  /* 프로젝트 종류명 제목 클래스*/
+  .kind_project
+  {
+      top: 10%;
+      width: 100%;
+  }
+
+  /* 코딩 프로그램 동영상 프로젝트 */
+
+  /* 비디오 비율 */
+  .video-grid {
+        gap: 10px;
+        width: 100%;
+        height: auto;
+    }
+    /* 프로그램 영상박스들 */
+    .video-box {
+        width:360px;
+        height: 180px;
+    }
+
+    /* 프로그램 영상박스 제목 */
+    .video-grid .video-box > p
+    {
+        font-size: 26px;
+    }
+
+    /* 포스터 프로젝트 */
+    #poster_container >.poster
+    {
+        width: 360px;
+    }
+    /* contact 이미지 */
+
+    #contact > ul > li >span
+    {
+      padding: 8px;
+    }
+
+}
+/* ======================================================== */
+/* c. 1024px <= width*/
+/*  -> min-width:1024px */
+/* 모니터 */
+

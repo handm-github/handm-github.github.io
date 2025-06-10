@@ -1,0 +1,78 @@
+  #header {
+    width: 1200px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* 좌우 요소 사이 간격 */
+    align-items: center; /* 수직 중앙 정렬 */
+    box-sizing: border-box;
+    background-color: aqua;
+  }
+
+  /* 로고 영역 */
+  .logo_box {
+    width: 120px;
+    height: 120px;
+    background-image: url('../images/gongcha_logo.png');
+    background-size: contain;   /* 이미지 크기 조절 */
+    background-repeat: no-repeat;  /* 반복 방지 */
+
+  }
+  /* 서브 메뉴 */
+  #header > ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* 메뉴 간격 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+  }
+
+  /* 오른쪽 영역: SNS와 개설문의 버튼 */
+  #header > div:last-child {
+    display: flex;
+  }
+
+  /* 메인메뉴 창 */
+  #mainmenu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
+
+  #mainmenu > li {
+  width: 90px;
+  background-color: blueviolet;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0px 20px;
+  }
+
+  /* 기존의 sns박스 + 개설문의이동 버튼(세로로 배치) */
+  #right_box {
+    flex-direction: column;
+    text-align: center;
+    font-family: 'GothicA1';
+    font-size: 18px;
+  }
+
+  /* 메인페이지 이동버튼 */
+  #mainpage_move {
+    height: 60px;
+    background-color: #c30e2e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    top: 0;
+    cursor: pointer;
+    font-size: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }

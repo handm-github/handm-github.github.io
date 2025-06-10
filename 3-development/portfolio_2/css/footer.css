@@ -1,0 +1,30 @@
+  
+  /* 로고 영역 */
+  .logo_box {
+    background-image: url('../images/gongcha_logo.jpg');
+    background-size: contain;   /* 이미지 크기 조절 */
+    background-repeat: no-repeat;  /* 반복 방지 */
+    background-position: center;   /* 가운데 정렬 */
+  }
+  footer 
+  {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: cornsilk;
+    display: flex;
+    gap: 20px; /* 간격을 조금 띄워줌 */
+  }
+  #footer_menus {
+    display: flex;
+    flex-direction: column; /* 위아래 정렬 */
+    justify-content: center;
+  }
+
+  footer > #footer_menus > #footer_menu1 > li {
+    padding: 6px;
+    display: inline-flex;
+  }
+
+  footer > #footer_menus > #footer_menu2 > li {
+    padding: 6px;
+  }

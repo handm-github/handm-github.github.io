@@ -1,0 +1,83 @@
+/* 헤더 */
+#header {
+  width: 100%;
+}
+
+.header_inner {
+  max-width: 1200px;  /* 최대 1200px까지 늘어나고 */
+  width: 100%;        /* 작을 땐 화면 너비에 맞게 줄어듦 */
+  margin: 0 auto;       /* 가운데 정렬 */
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 60px;
+  padding: 0 20px;    /* 좌우 여백 확보 */
+  box-sizing: border-box;
+}
+
+/* 로고는 가운데 정렬 */
+#header_logo {
+  background-image: url("../ikon/Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 우측 메뉴 */
+#header_right_menu {
+  display: flex;
+  margin-left: auto;
+}
+
+
+/* 헤더 우측 메뉴 */
+#header > div:last-child {
+    margin-left: auto;
+    display: flex;
+}
+
+/* 로그인/회원가입/통합검색 */
+.header_item {
+    font-family: 'Jua','Gothic A1','Noto Sans KR';
+    width: 80px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 내비게이션 */
+#navi {
+    width: 100%;
+    background-color: #f1bc2d;
+    display: flex;
+    justify-content: center;
+}
+
+/* 내비게이션 메뉴 */
+#combine_mainmenu {
+
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 메뉴 항목 */
+#combine_mainmenu > li {
+    width: 120px;
+    height: 60px;
+    font-family: 'Jua','Gothic A1','Noto Sans KR';
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}

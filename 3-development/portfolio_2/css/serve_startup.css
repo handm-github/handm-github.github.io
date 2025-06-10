@@ -1,0 +1,242 @@
+/* 너비 조절용 */
+#wrap {
+  width: 1200px;
+  margin: 0 auto;
+  background: pink;
+}
+
+/* 창업문의 제목(?)창 */
+#title_page {
+  width: 1200px;
+  height: 160px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* 왼쪽-오른쪽 정렬 */
+  align-items: center;
+    background-color: #b0333b;
+}
+
+/* 왼쪽 텍스트 박스 */
+#title_text {
+  flex: 1;
+  padding-left: 30px;
+}
+
+#title_text>h1,
+#title_text > span
+{
+  font-size: 30px;
+  font-family: 'Do Hyeon';
+  padding: 10px;
+  color: #f1eded;
+}
+
+#sequence > span
+{
+  font-size: 24px;
+  color: #f1eded;
+  font-family: "Noto Sans KR";
+  padding: 0px 10px;
+}
+
+/* 오른쪽 이미지 박스 */
+#interior {
+  width: 300px;
+  height: 100%;
+  background-image: url('../images/inter2.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+/* 컨테이너 */
+#container {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+  overflow: visible;
+}
+
+/* 초기 상태 - 모든 요소가 중앙에서 시작 */
+.ikon, .circle-bg {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 부드러운 bounce 효과 */
+}
+
+/* 중앙 로고는 제자리에서 페이드인 */
+.gongcha_logo_ikon {
+  transform-origin: center center;
+  transition: all 0.8s ease-out;
+}
+
+.gongcha_logo_ikon.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 고리는 중앙에서 방사적으로 확대 */
+.circle-bg {
+  transform-origin: center center;
+  transition: all 1s ease-out;
+}
+
+.circle-bg.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 아이콘들은 중앙에서 각자 위치로 이동하며 확대 */
+.ikon.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 둥근 고리 */
+.circle-bg {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+  border: 12px solid gold;
+  top: 20%;
+  left: 20%;
+  box-sizing: border-box;
+  /* 중앙에서 확대되도록 transform-origin 설정 */
+  transform-origin: 50% 50%;
+  /* 부드러운 애니메이션 */
+  transition: all 1s ease-out;
+}
+
+/* 아이콘 기본 스타일 */
+.ikon {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #ccc;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+  perspective: 1000px;
+  /* 모든 아이콘이 중앙에서 시작하도록 초기 위치를 중앙으로 설정 */
+  transform-origin: center center;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.ikon:hover .card {
+  transform: rotateY(180deg);
+}
+
+/* 앞면 (아이콘 이미지) */
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 아이콘 앞면 */
+.front {
+  background-color: #ccc;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 뒷면 (텍스트) */
+.back {
+  background-color: gold;
+  transform: rotateY(180deg);
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  align-items: center;
+}
+
+.gongcha_logo_ikon { background-image: url("../ikon/startup_ikon/gongcha_logo3.PNG"); }
+.cost_ikon { background-image: url("../ikon/startup_ikon/cost_ikon.png"); }
+.open_ikon { background-image: url("../ikon/startup_ikon/open_ikon.png"); }
+.counsel_ikon { background-image: url("../ikon/startup_ikon/counsel_ikon.png"); }
+.faq_ikon { background-image: url("../ikon/startup_ikon/faq_ikon.png"); }
+.interior_ikon { background-image: url("../ikon/startup_ikon/interior_ikon.png"); }
+.competitiveness_ikon { background-image: url("../ikon/startup_ikon/competitiveness_ikon.png"); }
+
+/* 중앙 로고 */
+.center {
+  top: 52%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+}
+
+/* 아이콘들의 최종 위치 - 애니메이션이 끝났을 때의 위치 */
+.pos1 { 
+  top: 10%; 
+  left: 55%; 
+  transform: translate(-50%, 0) scale(0);
+}
+.pos2 { 
+  top: 39%;
+  left: 87%;
+  transform: translate(-50%, -50%) scale(0);
+}
+.pos3 { 
+  top: 71%; 
+  left: 85%; 
+  transform: translate(-50%, -50%) scale(0);
+}
+.pos4 { 
+  top: 97%; 
+  left: 53%; 
+  transform: translate(-50%, -100%) scale(0);
+}
+.pos5 { 
+  top: 71%; 
+  left: 21%; 
+  transform: translate(-50%, -50%) scale(0);
+}
+.pos6 { 
+  top: 39%; 
+  left: 21%; 
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* 애니메이션 완료 상태 - 각 아이콘이 자신의 위치에 도달 */
+.pos1.show { 
+  transform: translate(-50%, 0) scale(1);
+  opacity: 1;
+}
+.pos2.show { 
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.pos3.show { 
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.pos4.show { 
+  transform: translate(-50%, -100%) scale(1);
+  opacity: 1;
+}
+.pos5.show { 
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.pos6.show { 
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}

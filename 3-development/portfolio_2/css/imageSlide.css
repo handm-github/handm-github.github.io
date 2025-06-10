@@ -1,0 +1,74 @@
+#imageSlide {
+    width: 100%;
+    max-width: 1920px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+#imageSlide > ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%; /* 중요 */
+}
+
+#imageSlide > ul > li {
+    flex: 0 0 100%; /* 한 장씩 보이도록 너비 100% 고정 */
+    /* flex-grow:0, flex-shrink:0, flex-basis:100% */
+}
+
+#imageSlide > ul > li > img {
+    width: 100%;  /* 부모 li 너비에 맞게 가로 꽉 채움 */
+    height: auto; /* 세로는 자동 조절 */
+    display: block; /* inline 이미지 간 여백 제거 */
+}
+
+/* <button> 요소에 기본적으로 설정되는 스타일 속성들을 초기화 */
+#imageSlide > button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+}
+#imageSlide > button > span
+{
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip:rect(0, 0, 0, 0);
+}
+/* 다음 이미지 버튼과 이전 이미지 버튼 */
+#next,#prev
+{
+    /* #imageSlide 요소의 영역을 기준으로 오른쪽 또는 왼쪽에 배치 */
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+    /* 배경 이미지로 아이콘 표시 */
+    background: url("https://i.imgur.com/pw4Yfrt.png") no-repeat;
+    opacity: 0.2;
+    transition-duration: 100ms;
+}
+#next:hover, #prev:hover { opacity: 1; }
+#next
+{
+    /* #imageSlide 요소의 영역을 기준으로 오른쪽에 배치 */
+    right:0;
+    /* 배경 이미지는 요소의 오른쪽에 배치 */
+    background-position: right;
+}
+
+#prev
+{
+    /* #imageSlide 요소의 영역을 기준으로 왼쪽에 배치 */
+    left: 0;
+    /* 배경 이미지는 요소의 왼쪽에 배치 */
+    background-position: left;
+    background-image:url("https://i.imgur.com/DBK27Kx.png");
+}

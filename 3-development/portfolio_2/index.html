@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gongcha</title>
+  <link rel="stylesheet" href="css/imageSlide.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/mainpage_style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/imageSlide.js"></script>
+  <script src="js/mainpage_best_seller.js"></script>
+</head>
+<body>
+  <!-- 로고 + 서브메뉴 + SNS 아이콘 + 창업페이지 이동 -->
+  <header id="header">
+    <!-- 로고 -->
+    <div class="logo_box"> 
+      <a href="index.html" class="logo_link"></a>
+    </div>
+
+    
+    <!-- 서브메뉴들 -->
+    <ul id="mainmenu">
+      <li><a href="servepage_info.html">브랜드</a></li>
+      <li><a href="servepage_menu.html">메뉴</a></li>
+      <li><a href="#">스토어</a></li>
+      <li><a href="#">멤버십</a></li>
+      <li><a href="#">이벤트&뉴스</a></li>
+    </ul>
+
+    <!-- 오른쪽 sns 박스와 이동버튼 -->
+      <div id="right_box">
+        <ul id="sns_box">
+          <li class="sns_logo facebook"></li>
+          <li class="sns_logo instar"></li>
+          <li class="sns_logo kakao"></li> 
+        </ul>
+        <!-- 가맹점 개설문의 버튼 -->
+        <button id="inquiry">
+          <a id="inquiry" href="servepage_startup.html">
+  <span class="inquiry-icon"></span>가맹점 <br>개설문의
+</a>
+        </button>
+      </div>
+  </header>
+  
+  <!-- 이미지 슬라이드 -->
+  <div id="imageSlide">
+      <ul>
+          <li><img src="Slide/Slide1.jpg" alt="imageSlide1"></li>
+          <li><img src="Slide/Slide2.jpg" alt="imageSlide2"></li>
+          <li><img src="Slide/Slide3.jpg" alt="imageSlide3"></li>
+      </ul>
+
+      <button type="button" id="next"><span>Next Image</span></button>
+      <button type="button" id="prev"><span>Previous Image</span></button>
+  </div><!-- /imageSlide -->
+
+  <!-- ==================================================================== -->
+  <div id="best_seller_container">
+    <h2>베스트 셀러</h2>
+    <ul id="best_seller_box">
+      <li class="best_seller_menu">
+        <div class="card">
+          <div class="card-inner">
+            <!-- 앞면 -->
+            <div class="best_seller_image">
+              <img src="../gongcha_port_hdm/mainpage_best_seller/blackmilktea_pearl.png" alt="블랙 밀크티 펄">
+              <span>블랙 밀크티 + 펄</span>
+            </div>
+            <!-- 뒷면 -->
+            <div class="best_seller_explain">
+              <span>공차 대표 메뉴 블랙밀크티와 쫄깃쫄깃한 펄의 콤비네이션</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="best_seller_menu">
+        <div class="card">
+          <div class="card-inner">
+            <!-- 앞면 -->
+            <div class="best_seller_image">
+              <img src="../gongcha_port_hdm/mainpage_best_seller/mango yogurt_pearl.png" alt="">
+              <span>망고 요구르트 + 화이트 펄</span>
+            </div>
+            <!-- 뒷면 -->
+            <div class="best_seller_explain">
+              <span>달콤한 망고 과육과 요구르트에 화이트펄의 꼬들꼬들함이 느껴지는 주스</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="best_seller_menu">
+        <div class="card">
+          <div class="card-inner">
+            <div class="best_seller_image">
+              <img src="../gongcha_port_hdm/mainpage_best_seller/oolong_tea_coconut_milk foam.png" alt="">
+              <span>우롱티 + 코코넛 + 밀크폼</span>
+            </div>
+            <!-- 뒷면 -->
+            <div class="best_seller_explain">
+              <span>깊고 고소한 우롱차에 코코넛 젤리와 달콤짭쪼름한 밀크폼을 올려 다양한 식감과 함께 부드럽게 즐기는 오리지널 티</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="best_seller_menu">
+        <div class="card">
+          <div class="card-inner">
+            <div class="best_seller_image">
+              <img src="../gongcha_port_hdm/mainpage_best_seller/chocolate_milktea.png" alt="">
+              <span>초콜릿 밀크티 + 치즈폼</span>
+            </div>
+            <!-- 뒷면 -->
+            <div class="best_seller_explain">
+              <span>부드러운 밀크에 녹아든 진한 초콜렛을 느낄 수 있는 초콜렛 밀크티와 치즈폼</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="best_seller_menu">
+        <div class="card">
+          <div class="card-inner">
+            <div class="best_seller_image">
+              <img src="../gongcha_port_hdm/mainpage_best_seller/strawberry_cookie_smoothie Pearl.png" alt="">
+              <span>딸기 쿠키 스무디 + 펄</span>
+            </div>
+            <!-- 뒷면 -->
+            <div class="best_seller_explain">
+              <span>얼그레이티로 만든 밀크 스무디에 달콤한 딸기와 바삭한 쿠키를 더한 스무디와 쫄깃쫄깃한 펄</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+<div>
+    <!-- 개설문의 페이지 div class="container" nth-child(1)-->
+    <div class="container">
+      <div class="content">
+        <h2>공차만의 프랜차이즈 운영 <br> 노하우로 안정된 창업을 이루세요</h2>
+        <button>가맹점 개설문의</button>
+      </div>
+      <div id="store"></div>
+    </div>
+    <!-- 공차 멤버십 + 공차 매장 찾기 div class="container" nth-child(2) -->
+     <div class="container">
+        <!-- 공차 멤버십 -->
+        <div id="membership">
+            <div id="phone" aria-label="공차 멤버십 핸드폰 사진"></div>
+
+            <div class="content">
+              <h2>공차 멤버십 앱에서 회원 전용 혜택을 누리세요!</h2>
+              <button>공차 멤버십 앱 안내</button>
+            </div>
+            
+        </div>
+
+        <!-- 공차 매장 찾기 -->
+        <div id="find">
+          <div>
+            <h2>공차 매장 찾기</h2>
+            <div class="input-wrap">
+              <input type="search" placeholder="매장명 또는 주소를 입력하세요">
+              <button id="enter"></button>
+            </div>
+          </div>
+        </div>
+
+     </div>
+
+     <!-- 이벤트창 이동 div class="container" nth-child(3)-->
+      <div class="container">
+        <div id="event_pic1"></div>
+        <!-- 이벤트창 글씨창 -->
+          <div id="event_explain"> 
+            <h2>이벤트창에 들어가셔서 다양한 이벤트를 찾아보세요!</h2>
+            <button>이벤트창 바로가기</button>
+          </div>
+          <!-- 사진이 있음 -->
+        <div id="event_pic2"></div>
+      </div>
+    </div>
+  
+  <!-- 푸터 -->
+  <footer>
+    <!-- 로고 -->
+    <div class="logo_box"></div>
+
+    <!-- 메뉴 묶음 -->
+    <div id="footer_menus">
+      <ul id="footer_menu1">
+        <li>회사소개</li>
+        <li>제휴/제안</li>
+        <li>고객센터</li>
+        <li>개인정보처리방침</li>
+        <li>이메일무단수집거부</li>
+      </ul>
+      <ul id="footer_menu2">
+        <li>고객센터 : 02-779-7758 운영시간 : 월요일 ~ 목요일(오전 9시 ~ 오후 6시), 금요일 (오전 9시 ~ 오후 1시)</li>
+        <li>가맹문의 : 02-3276-9581   점심시간 : 낮 9시 ~ 오후  1시 / 주말 및 공휴일 휴무</li>
+        <li>서울 종로구 47(공평동, 7층) | (주)공차코리아 대표이사 고희경 | 사업자등록번호 214-88-84534 | 통신판매번호: 2020-서울종로-0966</li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+  });
+</script>
