@@ -391,3 +391,13 @@
 </div>
 </body>
 </html>
+<script>
+	document.querySelectorAll('.page_warp').forEach(function(el) {
+    el.addEventListener('click', function() {
+        const url = el.getAttribute('data-link');
+        window.open(url, '_blank');  // 새 탭에서 열기
+        // 또는 현재 탭에서 이동하려면:
+        // window.location.href = url;
+    });
+});
+</script>
