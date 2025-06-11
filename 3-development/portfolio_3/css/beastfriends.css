@@ -1,0 +1,277 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#mainimage {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+  background-image: url("../images/beastfriends_mainimage.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  /* 이게 핵심! 정확한 비율 유지 */
+  padding-top: 30.104%;  /* 578 / 1920 * 100% */
+}
+/* 누끼딴 캐릭터 컨테이너 */
+.nookie_character_container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 누끼딴 캐릭터전신 사진 */
+.nookie_all_box {
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.nookie_character {
+  max-width: 300px;
+  height: auto;
+}
+
+.nooki_character img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+.nookie_character_introbox{
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  font-size: 16px;
+}
+/* 누끼딴 캐릭터 이름 */
+.nookie_character_name{
+    font-family:  'Do Hyeon','Gothic A1',sans-serif;
+    font-size: 32px;
+    padding: 12px 0;
+}
+/* 누끼딴 캐릭터 설명 */
+.nookie_character_explain{
+  font-family: 'Gothic A1','Noto Sans KR',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-bottom: 12px;
+}
+/* 누끼딴 캐릭터의 대표 대사 */
+.representative_ment {
+  font-size: 24px;
+  font-weight: bold;
+  white-space: pre-line;
+}
+
+/* ================================== */
+/* 4x4 Grid 레이아웃 설정 */
+.grid-wrapper {
+	display:grid;
+	/* grid-template-columns:1fr 1fr;가로 2칸 */
+	grid-template-columns:repeat(4,4fr);
+	/* 가로 4칸(괄호안의 숫자를 바꾸면 갯수가 늘어난다.) */
+	margin:0 auto;
+    width: 1200px;
+}
+
+/* 캐릭터 썸네일 스타일 */
+.characters_thumnail {
+    flex: 1 1 200px;         /* 최소 너비 200px, 유동적으로 커짐 */
+    max-width: 220px;        /* 최대 너비 제한 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+    border-radius: 8px;
+}
+/* 호버 효과 */
+.characters_thumnail:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+/* 캐릭터 이름과 설명 */
+.characters_name,
+.characters_simple_explain {
+    padding: 8px;
+    background-color: #eff88e;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 자세히보기 글씨 */
+.characters_open {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 8px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+/* 이미지 반응형 */
+.characters_thumnail img {
+    width: 100%;
+    height: auto;
+}
+
+/* ================================== */
+    /* 캐릭터 모달창 */
+/* 모달 오버레이 */
+.characters_modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 1000;
+}
+
+/* 모달 컨텐츠 */
+.characters_modal {
+  position: relative;
+  width: 80%;
+  max-width: 1200px;
+  height: 80%;
+  margin: 5% auto;
+  background-color: #f7f1eb;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 캐릭터 창 닫기 버튼 */
+#modal_close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-image: url("../ikon/x_button.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+
+}
+
+/* 닫기 버튼 회전 효과 */
+#modal_close {
+  transition: transform 0.3s ease;
+}
+
+#modal_close:hover {
+  transform: rotate(180deg);
+}
+
+
+/* 모달 내용 */
+.modal_content {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}
+
+/* 캐릭터 이미지 */
+.character_img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 반응형 대응을 위해 최소/최대 높이 설정 */
+  max-width: 100%;
+  max-height: 80vh; /* 모달의 세로 최대치 제한 */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.character_img img,
+#modalName,
+#modalDescription {
+  max-width: 100%;
+  max-height: 80vh; /* 화면 높이의 80%를 넘지 않도록 제한 */
+  height: auto;
+  width: auto;
+  object-fit: contain; /* 비율 유지하면서 이미지가 잘리거나 왜곡되지 않게 */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 1;
+  position: relative;
+}
+
+/* 이름과 설명 */
+.name_and_explain_box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.correct_name {
+    margin-bottom: 20px;
+    font-family: 'Orbit';
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.correct_explain {
+  flex: 1;
+  overflow-y: auto;
+  font-family: 'Gothic A1';
+}
+
+/* 네비게이션 버튼 */
+/* 모달 네비게이션 버튼 위치 수정 */
+.modal_navigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 95%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none; /* 부모만 클릭 못 하게 하고 자식만 가능하게 */
+}
+
+.prev-btn,
+.next-btn {
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  pointer-events: all; /* 버튼은 클릭 가능하게 */
+  transition: transform 0.2s ease;
+}
+
+.prev-btn {
+  background-image: url("../ikon/pre.png");
+  background-color: transparent;
+}
+
+.next-btn {
+  background-image: url("../ikon/next.png");
+  background-color: transparent;
+}
