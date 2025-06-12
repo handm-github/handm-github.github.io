@@ -192,7 +192,6 @@ const GridCharactersData = [
     img: "grid_characters/grid_character16.png",
     description: `<p>김태식 설명</p>`
   },
-  // ... 나머지 캐릭터들 16개 전부 동일한 방식으로
 ];
 document.addEventListener('DOMContentLoaded', () => {
   const mainSection = document.querySelector('.main-section');
@@ -203,33 +202,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.createElement('div');
     container.classList.add('nookie_character_container');
 
-    const quoteEl = document.createElement('span');
-    quoteEl.className = 'representative_ment';
-    quoteEl.style.writingMode = 'vertical-rl';
-    quoteEl.setAttribute('data-seq', index % 2 === 0 ? '2' : '0');
-    quoteEl.textContent = char.quote;
+    const quoteElement = document.createElement('span');
+    quoteElement.className = 'representative_ment';
+    quoteElement.style.writingMode = 'vertical-rl';
+    quoteElement.setAttribute('data-seq', index % 2 === 0 ? '2' : '0');
+    quoteElement.textContent = char.quote;
 
-    const introEl = document.createElement('div');
-    introEl.className = 'nookie_character_introbox';
-    introEl.setAttribute('data-seq', '1');
-    introEl.innerHTML = `
+    const introElement = document.createElement('div');
+    introElement.className = 'nookie_character_introbox';
+    introElement.setAttribute('data-seq', '1');
+    introElement.innerHTML = `
       <div class="nookie_character_name">${char.name}</div>
       <div class="nookie_character_explain">${char.description}</div>
     `;
 
-    const imgEl = document.createElement('div');
-    imgEl.className = 'nooki_character';
-    imgEl.setAttribute('data-seq', index % 2 === 0 ? '0' : '2');
-    imgEl.innerHTML = `<img src="${char.img}" alt="${char.name}">`;
+    const imgElement = document.createElement('div');
+    imgElement.className = 'nooki_character';
+    imgElement.setAttribute('data-seq', index % 2 === 0 ? '0' : '2');
+    imgElement.innerHTML = `<img src="${char.img}" alt="${char.name}">`;
 
     if (index % 2 === 0) {
-      container.appendChild(imgEl);
-      container.appendChild(introEl);
-      container.appendChild(quoteEl);
+      container.appendChild(imgElement);
+      container.appendChild(introElement);
+      container.appendChild(quoteElement);
     } else {
-      container.appendChild(quoteEl);
-      container.appendChild(introEl);
-      container.appendChild(imgEl);
+      container.appendChild(quoteElement);
+      container.appendChild(introElement);
+      container.appendChild(imgElement);
     }
 
     mainSection.appendChild(container);
