@@ -6,7 +6,7 @@
   width: 1200px;
   margin: 0 auto;
 }
-
+/* 맨 위에 뜬 이미지 */
 #mainimage {
   width: 100%;
   max-width: 1920px;
@@ -19,6 +19,22 @@
   
   /* 이게 핵심! 정확한 비율 유지 */
   padding-top: 30.104%;  /* 578 / 1920 * 100% */
+}
+
+/* 개별 영역들 */
+.main-section,
+.grid-section {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.beastfriends_title
+{
+  margin: 30px auto;
+  font-family: 'Sunflower','Orbit','Gothic A1';
+  font-size: 40px;
 }
 /* 누끼딴 캐릭터 컨테이너 */
 .nookie_character_container {
@@ -40,12 +56,12 @@
 }
 
 .nookie_character {
-  max-width: 300px;
+  max-width: 340px;
   height: auto;
 }
 
 .nooki_character img {
-  width: 200px;
+
   height: auto;
   object-fit: contain;
 }
@@ -57,7 +73,7 @@
 }
 /* 누끼딴 캐릭터 이름 */
 .nookie_character_name{
-    font-family:  'Do Hyeon','Gothic A1',sans-serif;
+    font-family:  'Orbit','Gothic A1',sans-serif;
     font-size: 32px;
     padding: 12px 0;
 }
@@ -70,9 +86,34 @@
 }
 /* 누끼딴 캐릭터의 대표 대사 */
 .representative_ment {
-  font-size: 24px;
+  font-family: 'Sunflower','Noto Sans KR',sans-serif;
+  font-size: 36px;
+  color: #999;
   font-weight: bold;
   white-space: pre-line;
+}
+/* 공통 초기 상태 */
+.nookie_character_container [data-seq] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* 순서별 딜레이 */
+.nookie_character_container.visible [data-seq="0"] {
+  transition-delay: 0s;
+}
+.nookie_character_container.visible [data-seq="1"] {
+  transition-delay: 0.2s;
+}
+.nookie_character_container.visible [data-seq="2"] {
+  transition-delay: 0.4s;
+}
+
+/* 활성화 상태 */
+.nookie_character_container.visible [data-seq] {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ================================== */
@@ -80,7 +121,7 @@
 .grid-wrapper {
 	display:grid;
 	/* grid-template-columns:1fr 1fr;가로 2칸 */
-	grid-template-columns:repeat(4,4fr);
+	grid-template-columns:repeat(5,5fr);
 	/* 가로 4칸(괄호안의 숫자를 바꾸면 갯수가 늘어난다.) */
 	margin:0 auto;
     width: 1200px;
@@ -274,4 +315,29 @@
 .next-btn {
   background-image: url("../ikon/next.png");
   background-color: transparent;
+}
+
+/* ================================== */
+/* 짐승친구들 영상 */
+.beastfriends_video_box{
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+}
+/* 영상 썸네일 */
+.beastfriends_video_box_thumnail
+{
+  width: 400px;
+  height: 220px;
+}
+/* 작품명 박스 + 업데이트 날짜 */
+.beastfriends_video_text_box
+{
+  display: flex;
+  flex-direction: column;
+}
+.beastfriends_video_box_subject
+{
+  width: 760px;
+  height: 80px;
 }
