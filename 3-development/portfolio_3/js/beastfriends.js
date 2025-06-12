@@ -198,62 +198,61 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainSection = document.querySelector('.main-section');
   const gridWrapper = document.querySelector('.grid-wrapper');
 
-// 주연 캐릭터 렌더링
-NookieCharacterData.forEach((char, index) => {
-  const container = document.createElement('div');
-  container.classList.add('nookie_character_container');
+ // 주연 캐릭터 렌더링
+  NookieCharacterData.forEach((char, index) => {
+    const container = document.createElement('div');
+    container.classList.add('nookie_character_container');
 
-  const quoteElement = document.createElement('span');
-  quoteElement.className = 'representative_ment';
-  quoteElement.style.writingMode = 'vertical-rl';
-  quoteElement.setAttribute('data-seq', index % 2 === 0 ? '2' : '0');
-  quoteElement.textContent = char.quote;
+    const quoteEl = document.createElement('span');
+    quoteEl.className = 'representative_ment';
+    quoteEl.style.writingMode = 'vertical-rl';
+    quoteEl.setAttribute('data-seq', index % 2 === 0 ? '2' : '0');
+    quoteEl.textContent = char.quote;
 
-  const introElement = document.createElement('div');
-  introElement.className = 'nookie_character_introbox';
-  introElement.setAttribute('data-seq', '1');
-  introElement.innerHTML = `
-    <div class="nookie_character_name">${char.name}</div>
-    <div class="nookie_character_explain">${char.description}</div>`;
+    const introEl = document.createElement('div');
+    introEl.className = 'nookie_character_introbox';
+    introEl.setAttribute('data-seq', '1');
+    introEl.innerHTML = `
+      <div class="nookie_character_name">${char.name}</div>
+      <div class="nookie_character_explain">${char.description}</div>
+    `;
 
-  const imgElement = document.createElement('div');
-  imgElement.className = 'nooki_character';
-  imgElement.setAttribute('data-seq', index % 2 === 0 ? '0' : '2');
-  imgElement.innerHTML = `<img src="${char.img}" alt="${char.name}">`;
+    const imgEl = document.createElement('div');
+    imgEl.className = 'nooki_character';
+    imgEl.setAttribute('data-seq', index % 2 === 0 ? '0' : '2');
+    imgEl.innerHTML = `<img src="${char.img}" alt="${char.name}">`;
 
-  if (index % 2 === 0) {
-    container.appendChild(imgElement);
-    container.appendChild(introElement);
-    container.appendChild(quoteElement);
-  } else {
-    container.appendChild(quoteElement);
-    container.appendChild(introElement);
-    container.appendChild(imgElement);
-  }
-
-  mainSection.appendChild(container);
-});
-
-// 스크롤 등장/사라짐 애니메이션 관찰자
-let lastScrollY = window.scrollY;
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const goingDown = window.scrollY > lastScrollY;
-
-    if (entry.isIntersecting && (goingDown || lastScrollY === 0)) {
-      entry.target.classList.add('visible');
-    } else if (!goingDown) {
-      entry.target.classList.remove('visible');
+    if (index % 2 === 0) {
+      container.appendChild(imgEl);
+      container.appendChild(introEl);
+      container.appendChild(quoteEl);
+    } else {
+      container.appendChild(quoteEl);
+      container.appendChild(introEl);
+      container.appendChild(imgEl);
     }
-  });
-  lastScrollY = window.scrollY;
-}, {
-  threshold: 0.3
-});
 
-document.querySelectorAll('.nookie_character_container').forEach(container => {
-  observer.observe(container);
-});
+    mainSection.appendChild(container);
+  });
+
+  // 스크롤 등장/사라짐 애니메이션 관찰자
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, {
+    threshold: 0.3,
+    rootMargin: '0px 0px -10% 0px' // 약간 빨리 반응하게 유도
+  });
+
+  document.querySelectorAll('.nookie_character_container').forEach(container => {
+    observer.observe(container);
+  });
+
 // =================================================
 
   // 조연 캐릭터 썸네일 렌더링 및 이벤트 설정
