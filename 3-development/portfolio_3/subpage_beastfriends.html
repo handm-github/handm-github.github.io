@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/beastfriends.css">
+  <link rel="stylesheet" href="css/beastfriends_responsive_style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script defer src="js/beastfriends.js"></script>
 </head>
@@ -36,34 +37,42 @@
   </nav>
 
   <div id="mainimage"></div>
-  <div class="wrap">
-    <!-- JS로 누끼딴 캐릭터들이 여기 채워짐 -->
-  <!-- 그리드 형식으로 일부 캐릭터들 나열 -->
-   <div class="grid-wrapper">
+<div class="wrap">
+  <!-- 주연 섹션 -->
+  <div class="main-section">
+    <div class="beastfriends_title">짐승친구들 주연</div>
+    <!-- JS로 캐릭터 동적 생성됨 -->
+  </div>
 
-      <!-- ------------------------------------- -->
-      <!-- 캐릭터 모달 -->
-      <div class="characters_modal_overlay">
-        <div class="characters_modal">
-          <button id="modal_close"></button>
-          <div class="modal_content">
-            <div class="character_img">
-              <img id="modalImg" alt="모달뜬 캐릭터 중 하나를 자세하게 설명한다.">
-            </div>
-            <div class="name_and_explain_box">
-              <div id="modalName" class="correct_name"></div>
-              <div id="modalDescription" class="correct_explain"></div>
-            </div>
-          </div>
-          <div class="modal_navigation">
-            <button class="prev-btn"></button>
-            <button class="next-btn"></button>
-          </div>
+  <!-- 조연 섹션 -->
+  <div class="grid-section">
+    <div class="beastfriends_title">짐승친구들 조연</div>
+    <div class="grid-wrapper">
+      <!-- JS로 썸네일 자동 채워짐 -->
+    </div>
+  </div>
+
+  <!-- 캐릭터 모달 -->
+  <div class="characters_modal_overlay">
+    <div class="characters_modal">
+      <button id="modal_close"></button>
+      <div class="modal_content">
+        <div class="character_img">
+          <img id="modalImg" alt="모달 캐릭터">
+        </div>
+        <div class="name_and_explain_box">
+          <div id="modalName" class="correct_name"></div>
+          <div id="modalDescription" class="correct_explain"></div>
         </div>
       </div>
-    <!-- ------------------------------------- -->
+      <div class="modal_navigation">
+        <button class="prev-btn"></button>
+        <button class="next-btn"></button>
+      </div>
     </div>
- </div>
+  </div>
+</div>
+
 
   <footer>
     <div id="footer_container">
