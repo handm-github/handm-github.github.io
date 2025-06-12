@@ -81,37 +81,6 @@ const NookieCharacterData= [
   }
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-  const wrap = document.querySelector('.wrap');
-
-  NookieCharacterData.forEach((char, index) => {
-    const container = document.createElement('div');
-    container.classList.add('nookie_character_container');
-
-    const quoteHtml = `<span class="representative_ment" style="writing-mode: vertical-rl;">${char.quote}</span>`;
-    const introHtml = `
-      <div class="nookie_character_introbox">
-        <div class="nookie_character_name">${char.name}</div>
-        <div class="nookie_character_explain">${char.description}</div>
-      </div>
-    `;
-    const imageHtml = `
-      <div class="nooki_character">
-        <img src="${char.img}" alt="${char.name}">
-      </div>
-    `;
-
-    container.innerHTML =
-      index % 2 === 0
-        ? `${imageHtml}${introHtml}${quoteHtml}`
-        : `${quoteHtml}${introHtml}${imageHtml}`;
-
-    // ✅ wrap 안에만 넣는다
-    wrap.insertBefore(container, document.querySelector('.grid-wrapper'));
-  });
-});
-
-
     // GridCharactersData: 16개 캐릭터 샘플 구조 생성
 const GridCharactersData = [
     {
@@ -225,63 +194,86 @@ const GridCharactersData = [
   },
   // ... 나머지 캐릭터들 16개 전부 동일한 방식으로
 ];
+document.addEventListener('DOMContentLoaded', () => {
+  const mainSection = document.querySelector('.main-section');
+  const gridWrapper = document.querySelector('.grid-wrapper');
 
-  // 썸네일 클릭 이벤트 연결
-  document.querySelectorAll('.characters_thumnail').forEach((el, index) => {
-    el.addEventListener('click', () => showModal(index, GridCharactersData));
+// 주연 캐릭터 렌더링
+NookieCharacterData.forEach((char, index) => {
+  const container = document.createElement('div');
+  container.classList.add('nookie_character_container');
+
+  const quoteElement = document.createElement('span');
+  quoteElement.className = 'representative_ment';
+  quoteElement.style.writingMode = 'vertical-rl';
+  quoteElement.setAttribute('data-seq', index % 2 === 0 ? '2' : '0');
+  quoteElement.textContent = char.quote;
+
+  const introElement = document.createElement('div');
+  introElement.className = 'nookie_character_introbox';
+  introElement.setAttribute('data-seq', '1');
+  introElement.innerHTML = `
+    <div class="nookie_character_name">${char.name}</div>
+    <div class="nookie_character_explain">${char.description}</div>`;
+
+  const imgElement = document.createElement('div');
+  imgElement.className = 'nooki_character';
+  imgElement.setAttribute('data-seq', index % 2 === 0 ? '0' : '2');
+  imgElement.innerHTML = `<img src="${char.img}" alt="${char.name}">`;
+
+  if (index % 2 === 0) {
+    container.appendChild(imgElement);
+    container.appendChild(introElement);
+    container.appendChild(quoteElement);
+  } else {
+    container.appendChild(quoteElement);
+    container.appendChild(introElement);
+    container.appendChild(imgElement);
+  }
+
+  mainSection.appendChild(container);
+});
+
+// 스크롤 등장/사라짐 애니메이션 관찰자
+let lastScrollY = window.scrollY;
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const goingDown = window.scrollY > lastScrollY;
+
+    if (entry.isIntersecting && (goingDown || lastScrollY === 0)) {
+      entry.target.classList.add('visible');
+    } else if (!goingDown) {
+      entry.target.classList.remove('visible');
+    }
   });
+  lastScrollY = window.scrollY;
+}, {
+  threshold: 0.3
+});
 
+document.querySelectorAll('.nookie_character_container').forEach(container => {
+  observer.observe(container);
+});
+// =================================================
 
-// 모달창 안의 캐릭터 사진과 이름,상세설명을 보여준다.
-let currentIndex = 0;
-let currentData = [];
-
-function showModal(index, data) {
-  currentData = data;
-  currentIndex = index;
-  const character = currentData[currentIndex];
-
-  if (!character) return;
-
-  document.getElementById('modalImg').src = character.img;
-  document.getElementById('modalName').textContent = character.name;
-  document.getElementById('modalDescription').innerHTML = character.description;
-  document.querySelector('.characters_modal_overlay').style.display = 'block';
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const gridWrapper = document.querySelector(".grid-wrapper");
-
+  // 조연 캐릭터 썸네일 렌더링 및 이벤트 설정
   GridCharactersData.forEach((char, index) => {
-    const thumb = document.createElement("div");
-    thumb.classList.add("characters_thumnail");
-    thumb.setAttribute("data-key", index);
+    const thumbnail = document.createElement("div");
+    thumbnail.classList.add("characters_thumnail");
+    thumbnail.setAttribute("data-key", index);
 
-    thumb.innerHTML = `
+    thumbnail.innerHTML = `
       <img src="${char.img}" alt="${char.name}">
       <span class="characters_name">${char.name}</span>
       <span class="characters_simple_explain">${char.simpleExplain}</span>
       <span class="characters_open">자세히보기</span>
     `;
 
-    gridWrapper.appendChild(thumb);
+    thumbnail.addEventListener("click", () => showModal(index, GridCharactersData));
+    gridWrapper.appendChild(thumbnail);
   });
 
-  // 모달 이벤트 연결
-  document.querySelectorAll(".characters_thumnail").forEach((el, idx) => {
-    el.addEventListener("click", () => showModal(idx, GridCharactersData));
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  // 모든 .characters_container 처리
-document.querySelectorAll(".characters_thumnail").forEach((el, idx) => {
-  el.addEventListener("click", () => showModal(idx, GridCharactersData));
-});
-
-
-  // 닫기 버튼
+  // 모달 닫기 버튼
   const closeBtn = document.getElementById('modal_close');
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
@@ -289,7 +281,7 @@ document.querySelectorAll(".characters_thumnail").forEach((el, idx) => {
     });
   }
 
-  // 이전/다음 버튼
+  // 모달 네비게이션
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
 
@@ -306,25 +298,26 @@ document.querySelectorAll(".characters_thumnail").forEach((el, idx) => {
   }
 });
 
+// 모달 관련 상태 및 함수
+let currentIndex = 0;
+let currentData = [];
+
 function showModal(index, data) {
-  const modalImg = document.getElementById('modalImg');
+  currentData = data;
+  currentIndex = index;
   const character = data[index];
 
-  // 슬라이드 효과: 페이드아웃 → 내용 변경 → 페이드인
+  const modalImg = document.getElementById('modalImg');
   modalImg.style.opacity = 0;
   modalImg.style.transform = 'translateX(0px)';
 
   setTimeout(() => {
-    currentData = data;
-    currentIndex = index;
-
     modalImg.src = character.img;
     document.getElementById('modalName').textContent = character.name;
     document.getElementById('modalDescription').innerHTML = character.description;
 
-    modalImg.style.transform = 'translateX(0px)';
     modalImg.style.opacity = 1;
-  }, 200); // transition 시간과 맞춤
+  }, 200);
 
   document.querySelector('.characters_modal_overlay').style.display = 'block';
 }
