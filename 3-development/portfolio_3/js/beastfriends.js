@@ -193,16 +193,7 @@ const GridCharactersData = [
     description: `<p>김태식 설명</p>`
   },
 ];
-//=================================================================
-const VideosData = [
-  {
-    img:"",
-    subjectName: "짐승친구들",
-    uploadDate: "",
-    title:""
 
-  }
-];
 //=================================================================
 document.addEventListener('DOMContentLoaded', () => {
   const mainSection = document.querySelector('.main-section');
@@ -332,3 +323,108 @@ function showModal(index, data) {
 }
 // =================================================
   // 비디오 영상 렌더링
+const VideosData = [
+  {
+    youtubeId: "UOzMv8TffOo", // 유튜브 영상 ID
+    subjectName: "짐승친구들",
+    uploadDate: " 2025. 6. 7",
+    title: "[짐승친구들] 쌍꺼풀 수술"
+  },  {
+    youtubeId: "wvntlaJDnjM", // 유튜브 영상 ID
+    subjectName: "짐승친구들",
+    uploadDate: " 2025. 5. 24",
+    title: "[짐승친구들] 인생 첫 월급 받은 날⭐"
+  },  {
+    youtubeId: "y_EiMOGvsKk", // 유튜브 영상 ID
+    subjectName: "짐승친구들",
+    uploadDate: "  2025. 5. 3",
+    title: "[짐승친구들] 퉁퉁퉁 사후르 VS 짐승친구들"
+  },  {
+    youtubeId: "RocMeTsaojY", // 유튜브 영상 ID
+    subjectName: "짐승친구들",
+    uploadDate: "  2025. 4. 26",
+    title: "[짐승친구들] 말티즈가 털을 안깎으면 생기는 일"
+  },  {
+    youtubeId: "KD1lQJa7ruE", // 유튜브 영상 ID
+    subjectName: "충성! 짐승친구들",
+    uploadDate: " 2025. 4. 23",
+    title: "[[충성! 짐승친구들] 행복한 말년 휴가"
+  },  {
+    youtubeId: "Ra96JYnJeXg", // 유튜브 영상 ID
+    subjectName: "충성! 짐승친구들",
+    uploadDate: " 2025. 4. 16",
+    title: "[충성! 짐승친구들] 안녕, 수영이형!"
+  },  {
+    youtubeId: "VpJ3C73hzcY", // 유튜브 영상 ID
+    subjectName: "짐승친구들",
+    uploadDate: "  2025. 4. 12",
+    title: "[짐승친구들] 고양이 전용 클럽"
+  },
+  // 원하는 만큼 추가
+];
+
+// 페이징
+const VIDEOS_PER_PAGE = 5;
+let currentPage = 1;
+
+function renderVideos(page = 1) {
+  const container = document.querySelector(".video_section");
+  const paginationWrapper = document.querySelector('.video_pagination_wrapper');
+  const start = (page - 1) * VIDEOS_PER_PAGE;
+  const end = start + VIDEOS_PER_PAGE;
+  const pageData = VideosData.slice(start, end);
+
+  // 이전 비디오 삭제
+  container.querySelectorAll(".video_container").forEach(e => e.remove());
+
+  // 영상 렌더링
+  pageData.forEach(video => {
+    const videoDiv = document.createElement("div");
+    videoDiv.className = "video_container";
+    videoDiv.innerHTML = `
+      <div class="video_thumnail">
+        <img src="https://img.youtube.com/vi/${video.youtubeId}/0.jpg" alt="썸네일">
+      </div>
+      <div class="video_text_box">
+        <div class="upload_subject_and_date">
+          <span class="upload_subject">${video.subjectName}</span>
+          <time class="upload_date">${video.uploadDate}</time>
+        </div>
+        <div class="video_title">${video.title}</div>
+      </div>
+    `;
+    videoDiv.style.cursor = "pointer";
+    videoDiv.addEventListener("click", () => {
+      window.open(`https://www.youtube.com/watch?v=${video.youtubeId}`, "_blank");
+    });
+
+    // 이러면 영상들 다음 아래에 번호 이동판들이 배열됨.
+    container.insertBefore(videoDiv, paginationWrapper);
+  });
+
+  renderPagination();
+}
+
+function renderPagination() {
+  const pagination = document.querySelector(".video_pagination");
+  pagination.innerHTML = "";
+
+  const totalPages = Math.ceil(VideosData.length / VIDEOS_PER_PAGE);
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.className = i === currentPage ? "active" : "";
+    btn.addEventListener("click", () => {
+      currentPage = i;
+      renderVideos(currentPage);
+    });
+    pagination.appendChild(btn);
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderVideos(currentPage);
+});
+
+  
