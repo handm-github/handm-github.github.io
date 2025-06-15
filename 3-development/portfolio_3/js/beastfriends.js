@@ -80,7 +80,7 @@ const NookieCharacterData= [
     quote:`~슘댱!`
   }
 ];
-
+//=================================================================
     // GridCharactersData: 16개 캐릭터 샘플 구조 생성
 const GridCharactersData = [
     {
@@ -193,6 +193,17 @@ const GridCharactersData = [
     description: `<p>김태식 설명</p>`
   },
 ];
+//=================================================================
+const VideosData = [
+  {
+    img:"",
+    subjectName: "짐승친구들",
+    uploadDate: "",
+    title:""
+
+  }
+];
+//=================================================================
 document.addEventListener('DOMContentLoaded', () => {
   const mainSection = document.querySelector('.main-section');
   const gridWrapper = document.querySelector('.grid-wrapper');
@@ -319,3 +330,5 @@ function showModal(index, data) {
 
   document.querySelector('.characters_modal_overlay').style.display = 'block';
 }
+// =================================================
+  // 비디오 영상 렌더링
