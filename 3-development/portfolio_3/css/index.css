@@ -190,12 +190,13 @@
   position: absolute;
   top: 20px;
   right: 20px;
- background-image: url("../ikon/x_button.png");
+  background-image: url("../ikon/x_button.png");
   background-size: cover;
   width: 50px;
   height: 50px;
   border: none;
   cursor: pointer;
+
 }
 
 /* 닫기 버튼 회전 효과 */
@@ -221,11 +222,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* 반응형 대응을 위해 최소/최대 높이 설정 */
+  max-width: 100%;
+  max-height: 80vh; /* 모달의 세로 최대치 제한 */
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .character_img img,
 #modalName,
 #modalDescription {
+  max-width: 100%;
+  max-height: 80vh; /* 화면 높이의 80%를 넘지 않도록 제한 */
+  height: auto;
+  width: auto;
+  object-fit: contain; /* 비율 유지하면서 이미지가 잘리거나 왜곡되지 않게 */
   transition: transform 0.5s ease, opacity 0.5s ease;
   opacity: 1;
   position: relative;
@@ -241,7 +253,7 @@
 
 .correct_name {
     margin-bottom: 20px;
-    font-family: 'Orbit';
+    font-family: 'Orbit','Gothic A1',sans-serif;
     font-size: 36px;
     font-weight: 700;
 }
@@ -249,7 +261,7 @@
 .correct_explain {
   flex: 1;
   overflow-y: auto;
-  font-family: 'Gothic A1';
+  font-family: 'Gothic A1','Noto Sans KR',sans-serif;
 }
 
 /* 네비게이션 버튼 */
@@ -476,25 +488,23 @@
   gap: 10px;
   cursor: pointer;
 }
-
-.youtube_icon {
+/* 공통 아이콘 */
+.youtube_icon,
+.shorts_icon{
   display: inline-block;
   width: 130px;
   height: 47px;
-  background-image: url("../ikon/youtube_logo.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.youtube_icon {
+  background-image: url("../ikon/youtube_logo.png");
+}
+
 .shorts_icon {
-  display: inline-block;
-  width: 130px;
-  height: 47px;
   background-image: url("../ikon/youtubeshorts_logo1.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #click_pigeon {
