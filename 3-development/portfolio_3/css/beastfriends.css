@@ -87,7 +87,7 @@
 }
 /* 누끼딴 캐릭터의 대표 대사 */
 .representative_ment {
-  font-family: 'Sunflower','Noto Sans KR',sans-serif;
+  font-family: 'Orbit','Noto Sans KR',sans-serif;
   font-size: 36px;
   color: #999;
   font-weight: bold;
@@ -339,19 +339,34 @@
 {
   display: flex;
   flex-direction: column;
-    width: 700px;
+  width: 700px;
 }
 /* 작품명 박스 + 업데이트 날짜 */
 .upload_subject_and_date
 {
-
+  font-family: 'Gothic A1','Noto Sans KR',sans-serif;
   height: 80px;
   background-color: #999;
 }
 
+/* 작품명 */
+.upload_subject
+{
+  font-family: 'Gothic A1','Noto Sans KR',sans-serif;
+  font-size: 48px;
+  padding: 20px;
+  text-align: center;
+}
+/* 업로드 날짜 */
+.upload_date
+{
+  font-family: 'Gothic A1','Noto Sans KR',sans-serif;
+}
 /* 영상속 제목 */
 .video_title
 {
   height: 140px;
   background-color: antiquewhite;
+  font-family: 'Gothic A1','Noto Sans KR',sans-serif;
+  font-size: 30px;
 }
