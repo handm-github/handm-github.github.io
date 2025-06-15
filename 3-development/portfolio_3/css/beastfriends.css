@@ -23,13 +23,14 @@
 
 /* 개별 영역들 */
 .main-section,
-.grid-section {
+.grid-section,
+.video_section {
   width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
-
+/* 섹션마다 중심제목 */
 .beastfriends_title
 {
   margin: 30px auto;
@@ -117,7 +118,7 @@
 }
 
 /* ================================== */
-/* 4x4 Grid 레이아웃 설정 */
+/* 5x5 Grid 레이아웃 설정 */
 .grid-wrapper {
 	display:grid;
 	/* grid-template-columns:1fr 1fr;가로 2칸 */
@@ -319,25 +320,38 @@
 
 /* ================================== */
 /* 짐승친구들 영상 */
-.beastfriends_video_box{
+
+/* 비디오 컨테이너 */
+.video_container{
   width: 100%;
   max-width: 1200px;
   display: flex;
 }
 /* 영상 썸네일 */
-.beastfriends_video_box_thumnail
+.video_thumnail
 {
   width: 400px;
   height: 220px;
+  background-color: aqua;
 }
-/* 작품명 박스 + 업데이트 날짜 */
-.beastfriends_video_text_box
+/* 비디오 글씨박스들 */
+.video_text_box
 {
   display: flex;
   flex-direction: column;
+    width: 700px;
 }
-.beastfriends_video_box_subject
+/* 작품명 박스 + 업데이트 날짜 */
+.upload_subject_and_date
 {
-  width: 760px;
+
   height: 80px;
+  background-color: #999;
+}
+
+/* 영상속 제목 */
+.video_title
+{
+  height: 140px;
+  background-color: antiquewhite;
 }
