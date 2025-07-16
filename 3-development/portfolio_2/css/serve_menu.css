@@ -154,7 +154,7 @@
         text-align: center;
     }
     /* 스무디 사진들 */
-    /* .smoothie1{background-image: url('../images/beverage/list_menu_1.png');} 
+    .smoothie1{background-image: url('../images/beverage/list_menu_1.png');} 
     .smoothie2{background-image: url('../images/beverage/list_menu_2.png');}
     .smoothie3{background-image: url('../images/beverage/list_menu_3.png');}
     .smoothie4{background-image: url('../images/beverage/list_menu_4.png');}
@@ -169,4 +169,4 @@
     .smoothie13{background-image: url('../images/beverage/list_menu_13.png');}
     .smoothie14{background-image: url('../images/beverage/list_menu_14.png');}
     .smoothie15{background-image: url('../images/beverage/list_menu_15.png');}
-    .smoothie16{background-image: url('../images/beverage/list_menu_16.png');}*/
+    .smoothie16{background-image: url('../images/beverage/list_menu_16.png');}
