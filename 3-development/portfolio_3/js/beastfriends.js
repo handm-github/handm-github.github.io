@@ -19,7 +19,6 @@ const NookieCharacterData= [
 		name: '땅땅이',
 		img: 'images/cat_wholebody.png',
 		description: `<p>&nbsp;건방지고 성격이 더럽지만 귀여운 아기고양이다.</p> 
-              <p>&nbsp;건방지고 성격이 더럽지만 귀여운 아기고양이다.<p> 
               <p>&nbsp;짐승친구들의 리더.</p>
                <p>&nbsp;말을 할때 –깡! –땅! –씨오! 등 쎈 발음이 특징.</p>
               <br>
@@ -585,4 +584,5 @@ function renderVideos(page = 1) {
 }document.addEventListener("DOMContentLoaded",
 () => {
 	renderVideos(currentPage);
+
 });
