@@ -4,7 +4,6 @@ $(function() {
     let windowHeight = $window.height();           // 창 높이
     let currentPage = Math.round($window.scrollTop() / windowHeight); // 현재 페이지 인덱스
     const lastPageindex = $('.page').length - 1;   // 마지막 페이지 인덱스
-    const isDesktop = window.innerWidth > 768;  // 간단한 분기
 
     // 페이지로 스크롤하는 함수
     function scrollToPage(index, duration = 500) {
@@ -13,7 +12,6 @@ $(function() {
         $htmlBody.stop().animate({ scrollTop: targetTop }, duration);
     }
 
-if (isDesktop) {
     // 초기 정렬
     scrollToPage(currentPage, 10);
 
@@ -53,7 +51,6 @@ if (isDesktop) {
             console.log('메뉴 클릭: 이동할 href=' + href + ', currentPage=' + targetindex);
         }
     });
-}
     // 페이지 애니메이션
     function animatePagesOnScroll() {
         $('.page').each(function() {
