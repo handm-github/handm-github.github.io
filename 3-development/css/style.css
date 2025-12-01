@@ -1,6 +1,7 @@
 /* 스크롤바 숨기기 */
 html,body {
-	overflow:hidden;
+	/* overflow:hidden; */
+	overflow-x: hidden;
 	background-color: #95cbe0;
 }
 /* 스크롤 페리이지 클래스들 */
@@ -51,9 +52,9 @@ html,body {
 	text-align:center;
 	line-height:3;
 	text-shadow:4px 4px 4px rgba(0,0,0,0.4);
-	width:12ch;
+	width:10ch;
 	/* 타이핑 애니메이션 효과발동 */
-	animation:typing 2s steps(12),blink .5s step-end infinite alternate;
+	animation:typing 2s steps(10),blink .5s step-end infinite alternate;
 	white-space:nowrap;
 	overflow:hidden;
 	border-right:3px solid;
