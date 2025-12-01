@@ -5,7 +5,7 @@
 /* 스마트폰 */
 @media (max-width: 768px) {
   html, body {
-    /* overflow-x: auto;   /* 옆으로도 필요하면 볼 수 있게 */ */
+    overflow-x: auto;   /* 옆으로도 필요하면 볼 수 있게 */
     overflow-y: auto;   /* 기본 세로 스크롤 다시 활성화 */
   }
     /* 페이지 높이와 너비 조정 */
