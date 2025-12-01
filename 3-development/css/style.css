@@ -1,6 +1,6 @@
 /* 스크롤바 숨기기 */
 html,body {
-	/* overflow:hidden; */
+	overflow:hidden;
 	background-color: #95cbe0;
 }
 /* 스크롤 페리이지 클래스들 */
