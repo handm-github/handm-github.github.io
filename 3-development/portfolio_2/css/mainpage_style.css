@@ -115,8 +115,9 @@
 
 .container .content button {
   padding: 10px 20px;
-  background-color: #d0ead7;
+  background-color: #f1e9c8;
   border: none;
+  border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
