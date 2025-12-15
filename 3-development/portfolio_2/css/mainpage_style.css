@@ -115,7 +115,7 @@
 
 .container .content button {
   padding: 10px 20px;
-  background-color: #fae9fb;
+  background-color: #dddddd;
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -176,7 +176,7 @@
 
 #membership .content button {
   padding: 10px 20px;
-  background-color: #fae9fb;
+  background-color: #dddddd;
   border: none;
   cursor: pointer;
   font-size: 16px;
