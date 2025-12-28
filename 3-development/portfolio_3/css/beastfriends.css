@@ -159,6 +159,7 @@
 
 .characters_name{
 	font-weight: bold;
+	font-size:24px;
 }
 
 /* 자세히보기 글씨 */
@@ -416,6 +417,7 @@
   color: white;
   font-weight: bold;
 }
+
 
 
 
