@@ -355,8 +355,8 @@
 .upload_subject_and_date
 {
   font-family: 'Gothic A1','Noto Sans KR',sans-serif;
-  height: 80px;
   background-color: #eff88e;
+  padding: 10px 0;   /* 원하는 만큼 여백 확보 */
 }
 
 /* 작품명 */
@@ -364,7 +364,6 @@
 {
   font-family: 'Gothic A1','Noto Sans KR',sans-serif;
   font-size: 48px;
-  padding: 20px;
   text-align: center;
 }
 /* 업로드 날짜 */
@@ -413,4 +412,5 @@
   color: white;
   font-weight: bold;
 }
+
 
