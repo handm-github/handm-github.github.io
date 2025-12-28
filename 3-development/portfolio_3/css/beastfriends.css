@@ -157,6 +157,10 @@
     box-sizing: border-box;
 }
 
+.characters_name{
+	font-weight: bold;
+}
+
 /* 자세히보기 글씨 */
 .characters_open {
     margin-top: auto;
@@ -175,7 +179,7 @@
 }
 
 /* ================================== */
-    /* 캐릭터 모달창 */
+/* 캐릭터 모달창 */
 /* 모달 오버레이 */
 .characters_modal_overlay {
   position: fixed;
@@ -412,5 +416,6 @@
   color: white;
   font-weight: bold;
 }
+
 
 
